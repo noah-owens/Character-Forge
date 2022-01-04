@@ -9,6 +9,12 @@
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
+
+    // Unit testing reports with Jacoco
+    id 'jacoco'
+
+    // JavaFX
+    id 'org.openjfx.javafxplugin' version '0.0.9'
 }
 
 repositories {
@@ -32,4 +38,24 @@ application {
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
+}
+
+test {
+    // Generate report after tests run
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
+
+    reports {
+        xml.required = false
+        csv.required = false
+        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+    }
+}
+
+javafx {
+    version = "17"
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
 }
