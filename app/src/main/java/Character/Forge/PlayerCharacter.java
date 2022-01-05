@@ -7,6 +7,9 @@ import java.util.ArrayList;
 
 /**
  * PlayerCharacter class creates an object representative of the completed character sheet.
+ *
+ * @version v0.0.0
+ * @author Noah Owens
  */
 public class PlayerCharacter {
     @Getter @Setter private String name;
