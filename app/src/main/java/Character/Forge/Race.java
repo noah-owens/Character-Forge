@@ -1,5 +1,5 @@
 package Character.Forge;
 
-public class App {
+public class Race {
 
 }
