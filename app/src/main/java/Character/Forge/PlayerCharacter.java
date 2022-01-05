@@ -3,11 +3,12 @@ package Character.Forge;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 /**
  * PlayerCharacter class creates an object representative of the completed character sheet.
- *
+ * <p>
  * @version v0.0.0
  * @author Noah Owens
  */
@@ -22,6 +23,7 @@ public class PlayerCharacter {
 
     public ArrayList<String> equipment;
     public ArrayList<String> spells;
+    public ArrayList<CharFeature> features;
 
     /**
      * PlayerCharacter constructor contains an instance of an ArrayList named "equipment" for storing adventuring paraphernalia and likewise one for "spells"
