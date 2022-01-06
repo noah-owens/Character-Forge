@@ -35,7 +35,7 @@ import lombok.Setter;
  * @author Noah Owens
  */
 public class Stat {
-    @Getter @Setter private String id;
+    @Getter final private String id;
     @Getter @Setter private int value;
     @Getter @Setter private int bonus;
 
@@ -50,5 +50,17 @@ public class Stat {
         this.id = id;
         this.value = value;
         this.bonus = bonus;
+    }
+
+    /**
+     * Returns a bonus using the Player's Handbook calculation for ability modifiers
+     * <p>
+     * @return stat bonus derived from stat object's value field
+     */
+    public int deriveBonus() {
+        double b = (value - 10) / 2;
+        Math.floor(b);
+
+        return (int) b;
     }
 }

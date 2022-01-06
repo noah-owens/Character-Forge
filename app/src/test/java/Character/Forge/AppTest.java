@@ -28,6 +28,8 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 /**
+ * Test file for App.java
+ * <p>
  * @version v0.0.0
  * @author Noah Owens
  */

@@ -24,28 +24,44 @@
 
 package Character.Forge;
 
-import lombok.Getter;
-import lombok.Setter;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * CharFeature class creates an [integer, string] pair object which represents the level at which a feature is unlocked, and the title
- * of the feature in question.
+ * Test file for Stat.java
  * <p>
  * @version v0.0.0
  * @author Noah Owens
  */
-public class CharFeature {
-    @Getter @Setter int level;
-    @Getter @Setter String title;
+public class StatTest {
+    Stat strength;
+    Stat wisdom;
 
     /**
-     * CharFeature constructor makes an object that associates the title of the feature with the level that it becomes available to a character.
-     * <p>
-     * @param level the level benchmark which must be met for this feature to be available
-     * @param title the name of the feature
+     * Creates a fresh instance of each stat so each test is dealing with a clean slate
      */
-    public CharFeature(int level, String title) {
-        this.level = level;
-        this.title = title;
+    @BeforeEach
+    public void setUp() {
+        strength = new Stat("STR", 14, 0);
+        wisdom = new Stat("WIS", 7, 0);
+    }
+
+    /**
+     * Tests the deriveBonus() method in Stat.java
+     */
+    @Test
+    @DisplayName("Test that derive bonus calculation is handled correctly.")
+    public void testDeriveBonus(){
+        strength.setBonus(strength.deriveBonus());
+        assert(strength.getBonus() == 2);
+
+        strength.setValue(18);
+        strength.setBonus(strength.deriveBonus());
+        assert(strength.getBonus() == 4);
+
+        wisdom.setBonus(wisdom.deriveBonus());
+        assert (wisdom.getBonus() == -2);
     }
 }
