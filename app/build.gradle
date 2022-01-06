@@ -15,6 +15,9 @@ plugins {
 
     // JavaFX
     id 'org.openjfx.javafxplugin' version '0.0.9'
+
+    // License plugin for adding license info to all classes.
+    id "com.github.hierynomus.license" version "0.16.1"
 }
 
 repositories {
@@ -64,4 +67,8 @@ jacocoTestReport {
 javafx {
     version = "17"
     modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+license {
+    header = rootProject.file('LICENSE')
 }
