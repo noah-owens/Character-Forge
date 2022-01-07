@@ -55,7 +55,7 @@ public class PlayerCharacterTest {
     }
 
     /**
-     * Test that rollDie() isn't creating a number outside of [1<=rolledValue<=n]
+     * Test that rollDie() is rolling a number N for which 1<=N<=n
      */
     @Test
     @DisplayName("Vegas baby")
