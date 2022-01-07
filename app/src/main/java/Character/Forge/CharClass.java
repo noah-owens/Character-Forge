@@ -28,6 +28,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * CharClass class creates an object which represents one of the main class types in the game.

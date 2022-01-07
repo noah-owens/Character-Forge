@@ -58,9 +58,7 @@ public class Stat {
      * @return stat bonus derived from stat object's value field
      */
     public int deriveBonus() {
-        double b = (value - 10) / 2;
-        Math.floor(b);
-
+        double b = Math.floor((value - 10.0) / 2.0);
         return (int) b;
     }
 }

@@ -29,6 +29,7 @@ import lombok.Setter;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * PlayerCharacter class creates an object representative of the completed character sheet.
@@ -71,5 +72,35 @@ public class PlayerCharacter {
 
         equipment = new ArrayList<>();
         spells = new ArrayList<>();
+    }
+
+    /**
+     * Simulate the roll of a die with n sides. Convenience method to not make Random objects everywhere.
+     * <p>
+     * @param n the number of sides
+     * @return an integer value between 1 & n
+     * @throws IllegalArgumentException if passed a negative n
+     */
+    public int rollDie(int n) throws IllegalArgumentException {
+            Random r = new Random();
+            return r.nextInt(n) + 1;
+    }
+
+    /**
+     * Returns a randomized HP total (without considering constitution bonus) considering character level and class hit die
+     * <p>
+     * @return an HP total ready to be adjusted with constitution
+     */
+    public int generateHP() {
+        int hp = charClass.hitDie;
+
+        if(level > 1) {
+            for(int i = 1; i < level; i++) {
+                int addedHitPoints = rollDie(charClass.hitDie);
+                hp += addedHitPoints;
+            }
+        }
+
+        return hp;
     }
 }

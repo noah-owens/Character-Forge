@@ -62,6 +62,6 @@ public class StatTest {
         assert(strength.getBonus() == 4);
 
         wisdom.setBonus(wisdom.deriveBonus());
-        assert (wisdom.getBonus() == -2);
+        assert(wisdom.getBonus() == -2);
     }
 }
