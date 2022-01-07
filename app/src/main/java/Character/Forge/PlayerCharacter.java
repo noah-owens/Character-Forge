@@ -27,7 +27,6 @@ package Character.Forge;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -102,5 +101,60 @@ public class PlayerCharacter {
         }
 
         return hp;
+    }
+
+    /**
+     * A costly way to implement a legal point buy system based on an algorithm I'd already written for this purpose which you can
+     * find at: https://github.com/noah-owens/5eRandomizer/blob/main/5e-Randomizer/scripts/main.js
+     * <p>
+     * @return an ArrayList of stats which is ready for racial bonus to be applied
+     */
+    public ArrayList<Stat> generateStats() {
+        ArrayList<Stat> initializedStats = initStats();
+        int pointBuyLimit = 27;
+        int statLimit = 15;
+
+        for(int i = 0; i < pointBuyLimit; i++) {
+            int statIndex = rollDie(6) - 1;
+            Stat atIndex = initializedStats.get(statIndex);
+
+            if(atIndex.getValue() < statLimit) {
+                atIndex.setValue(atIndex.getValue() + 1);
+            }
+            else {
+                i--;
+            }
+        }
+
+        return initializedStats;
+    }
+
+    /**
+     * Initializes the six main stats with a value of 8
+     * <p>
+     * @return a list of the six stats in character sheet order
+     */
+    public ArrayList<Stat> initStats() {
+        ArrayList<Stat> statArrayList = new ArrayList<>();
+
+        Stat strength = new Stat("STR", 8, 0);
+        statArrayList.add(strength);
+
+        Stat dexterity = new Stat("DEX", 8, 0);
+        statArrayList.add(dexterity);
+
+        Stat constitution = new Stat("CON", 8, 0);
+        statArrayList.add(constitution);
+
+        Stat intelligence = new Stat("INT", 8, 0);
+        statArrayList.add(intelligence);
+
+        Stat wisdom = new Stat("WIS", 8, 0);
+        statArrayList.add(wisdom);
+
+        Stat charisma = new Stat("CHA", 8, 0);
+        statArrayList.add(charisma);
+
+        return statArrayList;
     }
 }

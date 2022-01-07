@@ -94,4 +94,36 @@ public class PlayerCharacterTest {
         int hpAtLevelFifteen = bronan.generateHP();
         assert (36 <= hpAtLevelFifteen && hpAtLevelFifteen <= 180);
     }
+
+    /**
+     * Tests that initStats() creates the six stats in character sheet order and sets their value to 8
+     */
+    @Test
+    @DisplayName("initStats() is doing it's job")
+    public void testInitStats() {
+        String[] correctOrder = {"STR", "DEX", "CON", "INT", "WIS", "CHA"};
+        ArrayList<Stat> statArrayList = lyle.initStats();
+
+        for(int i = 0; i < correctOrder.length; i++) {
+            String correctStat = correctOrder[i];
+            Stat currentStat = statArrayList.get(i);
+
+            assert(correctStat == currentStat.getId());
+            assert(8 == currentStat.getValue());
+        }
+    }
+
+    /**
+     * Test that generateStats() is following the rules set by https://chicken-dinner.com/5e/5e-point-buy.html - Rules as Written tab
+     */
+    @Test
+    @DisplayName("Random point buy is following the rules")
+    public void testGenerateStats() {
+        ArrayList<Stat> testerStats = bronan.generateStats();
+
+        for (Stat stat : testerStats) {
+           int v = stat.getValue();
+           assert(8 <= v && v <= 15);
+        }
+    }
 }
