@@ -58,7 +58,7 @@ public class PlayerCharacterTest {
      * Test that rollDie() is rolling a number N for which 1<=N<=n
      */
     @Test
-    @DisplayName("Vegas baby")
+    @DisplayName("Vegas, baby!")
     public void testRollDie() {
         int i = 0;
 
