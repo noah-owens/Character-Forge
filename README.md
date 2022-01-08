@@ -3,10 +3,6 @@
 [![Build Status](https://app.travis-ci.com/noah-owens/Character-Forge.svg?branch=main)](https://app.travis-ci.com/noah-owens/Character-Forge)
 [![Code Coverage](https://img.shields.io/codecov/c/github/pvorb/property-providers/develop.svg)](https://codecov.io/github/pvorb/property-providers?branch=develop)
 
-![LINE](http://line.coverage.link)
-![BRANCH](http://branch.coverage.link)
-![COMPLEXITY](http://complexity.link)
-
 ## About
 
 Character Forge is an app for creating D&amp;D characters and NPCs based on a completely hands-off approach. Certain features may be specified, but it's never a requirement! Character Forge has been designed with accessibility and ease of use in mind, so that anyone on any system can install, run, and have a random character or NPC statblock ready to go at a moment's notice.
