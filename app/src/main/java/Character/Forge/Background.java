@@ -33,7 +33,7 @@ import java.util.ArrayList;
  * Background class creates an object which represents the background field in a character sheet,
  * containing a name, features, and additional equipment
  * <p>
- * @version v0.0.0
+ * @version v0.1.0
  * @author Noah Owens
  */
 public class Background {

@@ -34,7 +34,7 @@ import java.util.Random;
  * CharClass class creates an object which represents one of the main class types in the game.
  * At some future point it will become the parent of a "CharSubclass" inherited class.
  * <p>
- * @version v0.0.0
+ * @version v0.1.0
  * @author Noah Owens
  */
 public class CharClass {

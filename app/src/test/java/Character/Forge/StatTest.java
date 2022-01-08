@@ -32,7 +32,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Test file for Stat.java
  * <p>
- * @version v0.0.0
+ * @version v0.1.0
  * @author Noah Owens
  */
 public class StatTest {
