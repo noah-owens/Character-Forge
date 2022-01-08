@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Test file for App.java
  * <p>
- * @version v0.0.0
+ * @version v0.1.0
  * @author Noah Owens
  */
 class AppTest {

@@ -33,7 +33,7 @@ import java.util.Random;
 /**
  * PlayerCharacter class creates an object representative of the completed character sheet.
  * <p>
- * @version v0.0.0
+ * @version v0.1.0
  * @author Noah Owens
  */
 public class PlayerCharacter {

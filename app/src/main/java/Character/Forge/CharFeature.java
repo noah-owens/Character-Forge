@@ -31,7 +31,7 @@ import lombok.Setter;
  * CharFeature class creates an [integer, string] pair object which represents the level at which a feature is unlocked, and the title
  * of the feature in question.
  * <p>
- * @version v0.0.0
+ * @version v0.1.0
  * @author Noah Owens
  */
 public class CharFeature {

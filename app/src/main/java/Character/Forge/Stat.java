@@ -31,7 +31,7 @@ import lombok.Setter;
  * Stat class creates a specific [name, value] pair object to represent the 6 main stats
  * plus HP of a 5e D&D character
  * <p>
- * @version v0.0.0
+ * @version v0.1.0
  * @author Noah Owens
  */
 public class Stat {

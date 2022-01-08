@@ -33,7 +33,7 @@ import java.util.ArrayList;
  * CharClass class creates an object which represents one of the main character species in the game.
  * At some future point it will become the parent of a "Subrace" inherited class.
  * <p>
- * @version v0.0.0
+ * @version v0.1.0
  * @author Noah Owens
  */
 public class Race {
