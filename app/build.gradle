@@ -10,7 +10,7 @@ plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
     id 'application'
 
-    // Unit testing reports with Jacoco
+    // Unit testing reports and code coverage with Jacoco
     id 'jacoco'
 
     // JavaFX
@@ -55,12 +55,9 @@ test {
 }
 
 jacocoTestReport {
-    dependsOn test // tests are required to run before generating the report
-
     reports {
-        xml.required = false
-        csv.required = false
-        html.outputLocation = layout.buildDirectory.dir('jacocoHtml')
+        xml.enabled = true
+        html.enabled = true
     }
 }
 
@@ -72,3 +69,5 @@ javafx {
 license {
     header = rootProject.file('LICENSE')
 }
+
+check.dependsOn jacocoTestReport

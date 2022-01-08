@@ -1,6 +1,11 @@
 # Character Forge - v0.0.0
 
 [![Build Status](https://app.travis-ci.com/noah-owens/Character-Forge.svg?branch=main)](https://app.travis-ci.com/noah-owens/Character-Forge)
+[![Code Coverage](https://img.shields.io/codecov/c/github/pvorb/property-providers/develop.svg)](https://codecov.io/github/pvorb/property-providers?branch=develop)
+
+![LINE](http://line.coverage.link)
+![BRANCH](http://branch.coverage.link)
+![COMPLEXITY](http://complexity.link)
 
 ## About
 
