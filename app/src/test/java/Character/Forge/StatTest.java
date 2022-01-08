@@ -24,30 +24,44 @@
 
 package Character.Forge;
 
-import lombok.Getter;
-import lombok.Setter;
-
-import java.util.ArrayList;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
- * Background class creates an object which represents the background field in a character sheet,
- * containing a name, features, and additional equipment
+ * Test file for Stat.java
  * <p>
  * @version v0.1.0
  * @author Noah Owens
  */
-public class Background {
-    @Getter @Setter String name;
-    @Getter @Setter ArrayList<CharFeature> features;
+public class StatTest {
+    Stat strength;
+    Stat wisdom;
 
     /**
-     * Background constructor creates a background object with a name, and features
-     * <p>
-     * @param name the name of the background, provides a hint for possible roleplaying starts
-     * @param features the mechanical benefits of a given background
+     * Creates a fresh instance of each stat so each test is dealing with a clean slate
      */
-    public Background(String name, ArrayList<CharFeature> features) {
-        this.name = name;
-        this.features = features;
+    @BeforeEach
+    public void setUp() {
+        strength = new Stat("STR", 14, 0);
+        wisdom = new Stat("WIS", 7, 0);
+    }
+
+    /**
+     * Tests the deriveBonus() method in Stat.java
+     */
+    @Test
+    @DisplayName("Test that derive bonus calculation is handled correctly.")
+    public void testDeriveBonus(){
+        strength.setBonus(strength.deriveBonus());
+        assert(strength.getBonus() == 2);
+
+        strength.setValue(18);
+        strength.setBonus(strength.deriveBonus());
+        assert(strength.getBonus() == 4);
+
+        wisdom.setBonus(wisdom.deriveBonus());
+        assert(wisdom.getBonus() == -2);
     }
 }

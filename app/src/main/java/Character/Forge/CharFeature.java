@@ -27,27 +27,25 @@ package Character.Forge;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.ArrayList;
-
 /**
- * Background class creates an object which represents the background field in a character sheet,
- * containing a name, features, and additional equipment
+ * CharFeature class creates an [integer, string] pair object which represents the level at which a feature is unlocked, and the title
+ * of the feature in question.
  * <p>
  * @version v0.1.0
  * @author Noah Owens
  */
-public class Background {
-    @Getter @Setter String name;
-    @Getter @Setter ArrayList<CharFeature> features;
+public class CharFeature {
+    @Getter @Setter int level;
+    @Getter @Setter String title;
 
     /**
-     * Background constructor creates a background object with a name, and features
+     * CharFeature constructor makes an object that associates the title of the feature with the level that it becomes available to a character.
      * <p>
-     * @param name the name of the background, provides a hint for possible roleplaying starts
-     * @param features the mechanical benefits of a given background
+     * @param level the level benchmark which must be met for this feature to be available
+     * @param title the name of the feature
      */
-    public Background(String name, ArrayList<CharFeature> features) {
-        this.name = name;
-        this.features = features;
+    public CharFeature(int level, String title) {
+        this.level = level;
+        this.title = title;
     }
 }
