@@ -21,17 +21,37 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 package Character.Forge;
 
-import java.util.ArrayList;
+import org.checkerframework.checker.units.qual.C;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 /**
- * Main app class
+ * Test file for CharFeature.java
+ * <p>
  * @version v0.1.0
  * @author Noah Owens
  */
-public class App {
-    public static void main(String[] args) {
+public class CharFeatureTest {
+    CharFeature channelDivinity;
 
+    @BeforeEach
+    public void setUp() {
+        channelDivinity = new CharFeature(2, "Channel Divinity");
+    }
+
+    @Test
+    @DisplayName("Feature getters and setters working")
+    public void testGetterSetter() {
+        channelDivinity.setTitle("Sneak Attack");
+        channelDivinity.setLevel(0);
+
+        String t = channelDivinity.getTitle();
+        int l = channelDivinity.getLevel();
+
+        assert(t == "Sneak Attack" && l == 0);
     }
 }

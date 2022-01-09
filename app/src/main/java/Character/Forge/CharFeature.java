@@ -35,8 +35,8 @@ import lombok.Setter;
  * @author Noah Owens
  */
 public class CharFeature {
-    @Getter @Setter int level;
-    @Getter @Setter String title;
+    @Getter @Setter private int level;
+    @Getter @Setter private String title;
 
     /**
      * CharFeature constructor makes an object that associates the title of the feature with the level that it becomes available to a character.
