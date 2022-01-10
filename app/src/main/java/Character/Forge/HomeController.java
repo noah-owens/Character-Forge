@@ -25,8 +25,12 @@
 package Character.Forge;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 
 public class HomeController {
+
+    @FXML Button randomButton;
+    @FXML Button choiceButton;
 
     public void initialize() {
 
