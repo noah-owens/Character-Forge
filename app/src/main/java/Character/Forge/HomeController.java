@@ -24,5 +24,11 @@
 
 package Character.Forge;
 
+import javafx.fxml.FXML;
+
 public class HomeController {
+
+    public void initialize() {
+
+    }
 }
