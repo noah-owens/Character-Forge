@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-border-radius: 15; -fx-background-color: #1B1725;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Character.Forge.HomeController">
+   <children>
+       <!-- Title Pane -->
+      <Pane id="titlePane" layoutY="-1.0" prefHeight="304.0" prefWidth="1000.0">
+         <children>
+            <Label layoutX="229.0" layoutY="183.0" text="Character Forge" textFill="#9a9a9a">
+               <font>
+                  <Font name="Candara" size="80.0" />
+               </font>
+            </Label>
+            <Label layoutX="232.0" layoutY="152.0" text="D&amp;D 5e" textFill="#9a9a9a">
+               <font>
+                  <Font size="40.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+
+       <!-- Button Pane -->
+      <Pane layoutX="7.0" layoutY="350.0" prefHeight="287.0" prefWidth="1000.0">
+         <children>
+            <Button fx:id="randomButton" layoutX="100.0" layoutY="110.0" mnemonicParsing="false" onAction="#goToCharacterSheet" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #A1E8AF;" text="Give Me A Rando" textFill="#353f5b">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+            <Button fx:id="choiceButton" layoutX="600.0" layoutY="110.0" mnemonicParsing="false" onAction="#goToChoiceScreen" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #A1E8AF;" text="I Want Choices" textFill="#353f5b">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
