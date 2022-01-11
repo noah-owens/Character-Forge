@@ -103,13 +103,33 @@ public class PlayerCharacter {
         return hp;
     }
 
+    public Stat generateAdjustedHp() {
+        int baseHP = generateHP();
+        int aggregateConModifier = 0;
+        int conModifier = 0;
+        int hpValue = 0;
+
+        for (Stat s : stats) {
+            if (s.getId() == "CON") {
+                conModifier = s.getValue();
+            }
+
+            for (int i = 0; i < level; i++) {
+                aggregateConModifier += conModifier;
+            }
+        }
+
+        hpValue = baseHP + aggregateConModifier;
+        return new Stat("HP", hpValue, 0);
+    }
+
     /**
      * A costly way to implement a legal point buy system based on an algorithm I'd already written for this purpose which you can
      * find at: https://github.com/noah-owens/5eRandomizer/blob/main/5e-Randomizer/scripts/main.js
      * <p>
      * @return an ArrayList of stats which is ready for racial bonus to be applied
      */
-    public ArrayList<Stat> generateStats() {
+     public ArrayList<Stat> generateStats() {
         ArrayList<Stat> initializedStats = initStats();
         int pointBuyLimit = 27;
         int statLimit = 15;

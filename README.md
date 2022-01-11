@@ -32,9 +32,13 @@ If you would like to help out, don't hesitate to create a pull request! Both cod
 
 ## Contact 
 
-Noah Owens - [@ShiroitachiNoah](https://twitter.com/ShiroitachiNoah) 
+Noah Owens - [shiroitachistudio@gmail.com](shiroitachistudio@gmail.com)
 
 Project Link - [https://github.com/noah-owens/Character-Forge](https://github.com/noah-owens/Character-Forge)
+
+## Support
+
+If you like what's going on here, feel free to support me on [Ko-Fi](https://ko-fi.com/shiroitachistudio)! I'd really appreciate it.
 
 ## Acknowledgements
 
