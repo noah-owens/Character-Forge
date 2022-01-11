@@ -24,25 +24,5 @@
 
 package Character.Forge;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-
-public class HomeController {
-
-    @FXML Button randomButton;
-    @FXML Button choiceButton;
-
-    public void initialize() {
-
-    }
-
-    public void goToCharacterSheet() {
-        App.stageOne.show();
-        App.stage.close();
-    }
-
-    public void goToChoiceScreen() {
-        App.stageTwo.show();
-        App.stage.close();
-    }
+public class ChoicesController {
 }

@@ -39,6 +39,7 @@ import javafx.stage.Stage;
 public class App extends Application {
     public static Stage stage = new Stage();
     public static Stage stageOne = new Stage();
+    public static Stage stageTwo = new Stage();
 
     public App() {}
 
@@ -56,6 +57,12 @@ public class App extends Application {
         Scene sceneOne = new Scene(rootOne);
         stageOne.setScene(sceneOne);
         stageOne.setTitle("Character Forge");
+
+        FXMLLoader loaderTwo = new FXMLLoader((getClass().getResource("/choices.fxml")));
+        Parent rootTwo = loaderTwo.load();
+        Scene sceneTwo = new Scene(rootTwo);
+        stageTwo.setScene(sceneTwo);
+        stageTwo.setTitle("Character Forge");
     }
 
     public static void main(String[] args) {

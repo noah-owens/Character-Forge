@@ -28,12 +28,12 @@
        <!-- Button Pane -->
       <Pane layoutX="7.0" layoutY="350.0" prefHeight="287.0" prefWidth="1000.0">
          <children>
-            <Button fx:id="randomButton" layoutX="100.0" layoutY="110.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #A1E8AF;" text="Give Me A Rando" textFill="#353f5b">
+            <Button fx:id="randomButton" layoutX="100.0" layoutY="110.0" mnemonicParsing="false" onAction="#goToCharacterSheet" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #A1E8AF;" text="Give Me A Rando" textFill="#353f5b">
                <font>
                   <Font size="30.0" />
                </font>
             </Button>
-            <Button fx:id="choiceButton" layoutX="600.0" layoutY="110.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #A1E8AF;" text="I Want Choices" textFill="#353f5b">
+            <Button fx:id="choiceButton" layoutX="600.0" layoutY="110.0" mnemonicParsing="false" onAction="#goToChoiceScreen" prefHeight="50.0" prefWidth="300.0" style="-fx-background-color: #A1E8AF;" text="I Want Choices" textFill="#353f5b">
                <font>
                   <Font size="30.0" />
                </font>
