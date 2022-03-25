@@ -26,9 +26,12 @@ package Character.Forge;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 public class HomeController {
 
+    @FXML Label txt5e;
+    @FXML Label txtCharForge;
     @FXML Button randomButton;
     @FXML Button choiceButton;
 
