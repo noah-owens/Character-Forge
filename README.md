@@ -14,7 +14,7 @@ Character Forge is an app for creating D&amp;D characters and NPCs based on a co
 
 ## Getting Started
 
-Until I reach my first production release, I will not be providing a .JAR. That doesn't mean you can't try it out though! To install the program, first open your terminal and clone the repository to your machine using:
+Until I reach my first production release, I will not be providing a JAR. That doesn't mean you can't try it out though! To install the program, first open your terminal and clone the repository to your machine using:
 
 ```
 git clone https://github.com/noah-owens/Character-Forge.git
