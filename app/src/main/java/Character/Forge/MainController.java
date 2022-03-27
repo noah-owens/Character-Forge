@@ -24,28 +24,9 @@
 
 package Character.Forge;
 
-import lombok.Getter;
-import lombok.Setter;
+public class MainController {
 
-/**
- * CharFeature class creates an [integer, string] pair object which represents the level at which a feature is unlocked, and the title
- * of the feature in question.
- * <p>
- * @version v0.1.0
- * @author Noah Owens
- */
-public class CharFeature {
-    @Getter @Setter private int level;
-    @Getter @Setter private String title;
+    public void initialize() {
 
-    /**
-     * CharFeature constructor makes an object that associates the title of the feature with the level that it becomes available to a character.
-     * <p>
-     * @param level the level benchmark which must be met for this feature to be available
-     * @param title the name of the feature
-     */
-    public CharFeature(int level, String title) {
-        this.level = level;
-        this.title = title;
     }
 }

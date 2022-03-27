@@ -21,12 +21,51 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+
 package Character.Forge;
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 /**
+ * App class launches GUI
+ * <p>
  * @version v0.1.0
  * @author Noah Owens
  */
-public class App {
+public class App extends Application {
+    public static Stage stage = new Stage();
+    public static Stage stageOne = new Stage();
+    public static Stage stageTwo = new Stage();
 
+    public App() {}
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        FXMLLoader loader = new FXMLLoader((getClass().getResource("/home.fxml")));
+        Parent root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setTitle("Character Forge");
+        stage.show();
+
+        FXMLLoader loaderOne = new FXMLLoader((getClass().getResource("/main.fxml")));
+        Parent rootOne = loaderOne.load();
+        Scene sceneOne = new Scene(rootOne);
+        stageOne.setScene(sceneOne);
+        stageOne.setTitle("Character Forge");
+
+        FXMLLoader loaderTwo = new FXMLLoader((getClass().getResource("/choices.fxml")));
+        Parent rootTwo = loaderTwo.load();
+        Scene sceneTwo = new Scene(rootTwo);
+        stageTwo.setScene(sceneTwo);
+        stageTwo.setTitle("Character Forge");
+    }
+
+    public static void main(String[] args) {
+        App.launch();
+    }
 }
