@@ -91,11 +91,11 @@ public class PlayerCharacter {
      * @return an HP total ready to be adjusted with constitution
      */
     public int generateHP() {
-        int hp = charClass.hitDie;
+        int hp = charClass.getHitDie();
 
         if(level > 1) {
             for(int i = 1; i < level; i++) {
-                int addedHitPoints = rollDie(charClass.hitDie);
+                int addedHitPoints = rollDie(charClass.getHitDie());
                 hp += addedHitPoints;
             }
         }
@@ -103,24 +103,11 @@ public class PlayerCharacter {
         return hp;
     }
 
-    public Stat generateAdjustedHp() {
-        int baseHP = generateHP();
-        int aggregateConModifier = 0;
-        int conModifier = 0;
-        int hpValue = 0;
+    //UNFINISHED METHOD DOES NOTHING YET
+    public Stat conAdjustHP(int unadjustedHp) {
+        Stat adjustedHP = new Stat("HP", unadjustedHp, 0);
 
-        for (Stat s : stats) {
-            if (s.getId() == "CON") {
-                conModifier = s.getValue();
-            }
-
-            for (int i = 0; i < level; i++) {
-                aggregateConModifier += conModifier;
-            }
-        }
-
-        hpValue = baseHP + aggregateConModifier;
-        return new Stat("HP", hpValue, 0);
+        return adjustedHP;
     }
 
     /**
