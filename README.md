@@ -3,14 +3,14 @@
 [![Build Status](https://app.travis-ci.com/noah-owens/Character-Forge.svg?branch=main)](https://app.travis-ci.com/noah-owens/Character-Forge)
 [![codecov](https://codecov.io/gh/noah-owens/Character-Forge/branch/main/graph/badge.svg?token=4P24PAUOWH)](https://codecov.io/gh/noah-owens/Character-Forge)
 
-
 ## About
 
 Character Forge is an app for creating D&amp;D characters and NPCs based on a completely hands-off approach. Certain features may be specified, but it's never a requirement! Character Forge has been designed with accessibility and ease of use in mind, so that anyone on any system can install, run, and have a random character or NPC statblock ready to go at a moment's notice.
 
 ### Built With
-- [Java](https://www.java.com/en/)
-
+- [Java](https://www.java.com/en/) (JDK 17)
+- [IntelliJ IDEA 202.3.4](https://confluence.jetbrains.com/display/IDEADEV/IntelliJ+IDEA+2020.3.4+(203.8084.24+build)+Release+Notes) (This version is bundled with the lombok plugin)
+- [Gluon Scene Builder](https://gluonhq.com/products/scene-builder/)
 
 ## Getting Started
 
@@ -28,11 +28,11 @@ gradle run
 
 ## Contributing
 
-If you would like to help out, don't hesitate to create a pull request! Both code and non-code contributions are welcome. Alternatively, create an issue with the tag "suggestion" and I'll be sure to give it a look!
+If you would like to help out, don't hesitate to create a pull request! Both code and non-code contributions are welcome. Alternatively, create an issue with the tag "suggestion", and I'll be sure to give it a look!
 
 ## Contact 
 
-Noah Owens - [shiroitachistudio@gmail.com](shiroitachistudio@gmail.com)
+Noah Owens - [shiroitachistudio@gmail.com](mailto:shiroitachistudio@gmail.com)
 
 Project Link - [https://github.com/noah-owens/Character-Forge](https://github.com/noah-owens/Character-Forge)
 
@@ -48,7 +48,7 @@ If you like what's going on here, feel free to support me on [Ko-Fi](https://ko-
 
 ## License
 
-Copyright (c) 2022 Noah Owens
+Copyright (c) 2022 Noah C Owens
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
