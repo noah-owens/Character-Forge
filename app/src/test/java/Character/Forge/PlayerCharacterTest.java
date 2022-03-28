@@ -41,7 +41,7 @@ public class PlayerCharacterTest {
     PlayerCharacter bronan;
     CharClass bard;
     CharClass barbarian;
-    Stat hitPoints;
+    ArrayList<Stat> lyleStatList;
 
     @BeforeEach
     public void setUp() {
@@ -49,7 +49,7 @@ public class PlayerCharacterTest {
         barbarian = new CharClass("Barbarian", 12, new ArrayList<>());
         lyle = new PlayerCharacter("Lyle", 1, bard, null, 0, new ArrayList<>(), null, "CG");
         bronan = new PlayerCharacter("Bronan", 15, barbarian, null, 0, new ArrayList<>(), null, "CG");
-        hitPoints = new Stat("HP", 0, 0);
+        lyleStatList = lyle.generateStats();
     }
 
     /**
@@ -82,15 +82,42 @@ public class PlayerCharacterTest {
         int hpAtLevelOne;
         int hpAtLevelThree;
 
-        hpAtLevelOne = lyle.generateHP();
+        hpAtLevelOne = lyle.generateHp();
         assert(hpAtLevelOne == 8);
 
         lyle.setLevel(3);
-        hpAtLevelThree = lyle.generateHP();
+        hpAtLevelThree = lyle.generateHp();
         assert (10 <= hpAtLevelThree && hpAtLevelThree <= 24);
 
-        int hpAtLevelFifteen = bronan.generateHP();
+        int hpAtLevelFifteen = bronan.generateHp();
         assert (36 <= hpAtLevelFifteen && hpAtLevelFifteen <= 180);
+    }
+
+    /**
+     * Test conAdjustHp()
+     * <p>
+     * Currently throwing an index out of bounds exception that isn't present in
+     * testGenerateStats() despite basically doing the same thing?
+     * Index 2 (Constitution) is out of bounds for length 0, which should be 5
+     */
+    @Test
+    @DisplayName("Verify conAdjustHp() correctly increases player.hp")
+    public void testConAdjustHp() {
+
+        // generate stats for lyle [str, dex, con, int, wis, cha]
+        //                                     ^ index 2
+        ArrayList<Stat> lyleStatList = lyle.generateStats();
+
+        // hp initialized at 0 in this case
+        int lyleHp = lyle.getHp();
+
+        // constitution set to a normal value/bonus pair manually for purposes of this test
+        lyleStatList.get(2).setValue(16);
+        lyleStatList.get(2).setBonus(3);
+
+        int adjustedHp = lyle.conAdjustHp(lyleHp);
+
+        assert(3 == adjustedHp);
     }
 
     /**
@@ -113,6 +140,8 @@ public class PlayerCharacterTest {
 
     /**
      * Test that generateStats() is following the rules set by https://chicken-dinner.com/5e/5e-point-buy.html - Rules as Written tab
+     * <p>
+     * Currently generateStats() is returning all 8's. It's correctly initializing the stats, but not point buying at all.
      */
     @Test
     @DisplayName("Random point buy is following the rules")
