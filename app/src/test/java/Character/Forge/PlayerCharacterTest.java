@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022 Noah Owens
+ * Copyright (c) 2022 Noah C Owens
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package Character.Forge;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -29,8 +28,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.Objects;
 
 /**
  * Test file for CharClass.java
@@ -49,8 +47,8 @@ public class PlayerCharacterTest {
     public void setUp() {
         bard = new CharClass("Bard", 8, new ArrayList<>());
         barbarian = new CharClass("Barbarian", 12, new ArrayList<>());
-        lyle = new PlayerCharacter("Lyle", 1, bard, null, new ArrayList<>(), null, "CG");
-        bronan = new PlayerCharacter("Bronan", 15, barbarian, null, new ArrayList<>(), null, "CG");
+        lyle = new PlayerCharacter("Lyle", 1, bard, null, 0, new ArrayList<>(), null, "CG");
+        bronan = new PlayerCharacter("Bronan", 15, barbarian, null, 0, new ArrayList<>(), null, "CG");
         hitPoints = new Stat("HP", 0, 0);
     }
 
@@ -81,8 +79,8 @@ public class PlayerCharacterTest {
     @Test
     @DisplayName("Make sure that generateHp() results in legal values every time")
     public void testGenerateHp() {
-        int hpAtLevelOne  = 0;
-        int hpAtLevelThree = 0;
+        int hpAtLevelOne;
+        int hpAtLevelThree;
 
         hpAtLevelOne = lyle.generateHP();
         assert(hpAtLevelOne == 8);
@@ -108,7 +106,7 @@ public class PlayerCharacterTest {
             String correctStat = correctOrder[i];
             Stat currentStat = statArrayList.get(i);
 
-            assert(correctStat == currentStat.getId());
+            assert(Objects.equals(correctStat, currentStat.getId()));
             assert(8 == currentStat.getValue());
         }
     }

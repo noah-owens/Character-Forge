@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022 Noah Owens
+ * Copyright (c) 2022 Noah C Owens
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package Character.Forge;
 
 import org.checkerframework.checker.units.qual.A;
@@ -41,8 +40,8 @@ import java.util.ArrayList;
 public class RaceTest {
     Race orc = new Race("Orc", new ArrayList<>(), new ArrayList<>());
     Race human = new Race("Human", new ArrayList<>(), new ArrayList<>());
-    PlayerCharacter ron = new PlayerCharacter("Ron Stampler", 1, null, human, new ArrayList<>(), null, "NG");
-    PlayerCharacter grond = new PlayerCharacter("Nightmare Ram Grond", 1, null, orc, new ArrayList<>(), null, "CE");
+    PlayerCharacter ron = new PlayerCharacter("Ron Stampler", 1, null, human, 0, new ArrayList<>(), null, "NG");
+    PlayerCharacter grond = new PlayerCharacter("Nightmare Ram Grond", 1, null, orc, 0, new ArrayList<>(), null, "CE");
     ArrayList<Stat> orcChanges;
     ArrayList<Stat> humanChanges;
 
