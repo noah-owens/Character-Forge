@@ -1,8 +1,6 @@
 # Character Forge - v0.2.1
 
-<!--
-[![Build Status](https://app.travis-ci.com/noah-owens/Character-Forge.svg?branch=main)](https://app.travis-ci.com/noah-owens/Character-Forge)
--->
+![Build Status](https://github.com/noah-owens/Character-Forge/actions/workflows/java-ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/noah-owens/Character-Forge/branch/main/graph/badge.svg?token=4P24PAUOWH)](https://codecov.io/gh/noah-owens/Character-Forge)
 
 ## About
