@@ -23,6 +23,7 @@
  */
 package Character.Forge;
 
+import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -39,9 +40,11 @@ import java.util.Objects;
 public class PlayerCharacterTest {
     PlayerCharacter lyle;
     PlayerCharacter bronan;
+    PlayerCharacter mannequin;
     CharClass bard;
     CharClass barbarian;
     Race human;
+    Background salesperson;
     ArrayList<Stat> humanRaceBonuses;
 
     @BeforeEach
@@ -58,6 +61,45 @@ public class PlayerCharacterTest {
             humanRaceBonuses.add(new Stat("WIS", 1, 0));
             humanRaceBonuses.add(new Stat("CHA", 1, 0));
         human = new Race("Human", humanRaceBonuses, new ArrayList<CharFeature>());
+        salesperson = new Background("Salesperson", new ArrayList<CharFeature>());
+    }
+
+    @Test
+    @DisplayName("Nonparameterized constructor contains spell and equipment lists")
+    public void testNonParameterizedConstructor(){
+        //No access/update methods for spell and equipment lists yet
+        mannequin = new PlayerCharacter();
+    }
+
+    @Test
+    @DisplayName("All getters/setters access what they're supposed to")
+    public void testGettersAndSetters() {
+        mannequin = new PlayerCharacter();
+
+        mannequin.setName("J.C. Penney");
+        assert ("J.C. Penney".equals(mannequin.getName()));
+
+        mannequin.setLevel(20);
+        assert (20 == mannequin.getLevel());
+
+        mannequin.setCharClass(barbarian);
+        assert (barbarian.equals(mannequin.getCharClass()));
+
+        mannequin.setRace(human);
+        assert (human.equals(mannequin.getRace()));
+
+        mannequin.setHp(1);
+        assert (1 == mannequin.getHp());
+
+        ArrayList<Stat> generatedStats = mannequin.createStatsAndBonuses();
+        mannequin.setStats(generatedStats);
+        assert (generatedStats.equals(mannequin.getStats()));
+
+        mannequin.setBackground(salesperson);
+        assert (salesperson.equals(mannequin.getBackground()));
+
+        mannequin.setAlignment("N");
+        assert ("N".equals(mannequin.getAlignment()));
     }
 
     /**
@@ -108,25 +150,28 @@ public class PlayerCharacterTest {
      * testGenerateStats() despite basically doing the same thing?
      * Index 2 (Constitution) is out of bounds for length 0, which should be 5
      */
-//    @Test
-//    @DisplayName("Verify conAdjustHp() correctly increases player.hp")
-//    public void testConAdjustHp() {
-//
-//        // generate stats for lyle [str, dex, con, int, wis, cha]
-//        //                                     ^ index 2
-//        ArrayList<Stat> lyleStatList = lyle.generateStats();
-//
-//        // hp initialized at 0 in this case
-//        int lyleHp = lyle.getHp();
-//
-//        // constitution set to a normal value/bonus pair manually for purposes of this test
-//        lyleStatList.get(2).setValue(16);
-//        lyleStatList.get(2).setBonus(3);
-//
-//        int adjustedHp = lyle.conAdjustHp(lyleHp);
-//
-//        assert(3 == adjustedHp);
-//    }
+    @Test
+    @DisplayName("Verify conAdjustHp() correctly increases player.hp")
+    public void testConAdjustHp() {
+        // stat generation requires non-null race field
+        lyle.setRace(human);
+
+        // generate stats for lyle [str, dex, con, int, wis, cha]
+        //                                     ^ index 2
+        ArrayList<Stat> lyleStatList = lyle.createStatsAndBonuses();
+        lyle.setStats(lyleStatList);
+
+        // hp initialized at 0 in this case
+        int lyleHp = lyle.getHp();
+
+        // constitution set to a normal value/bonus pair manually for purposes of this test
+        lyle.getStats().get(2).setValue(16);
+        lyle.getStats().get(2).setBonus(3);
+
+        int adjustedHp = lyle.conAdjustHp(lyleHp);
+
+        assert(3 == adjustedHp);
+    }
 
     /**
      * Test that everything is following the rules set by
@@ -140,6 +185,8 @@ public class PlayerCharacterTest {
 
         assert (6 == bronan.getStats().size());
 
+        // 8 < Stat.value <= 16 [racial bonus for human adds 1 to every stat value]
+        // -1 <= Stat.bonus <= 3 [min value (9) has a derived bonus of -1 and max value (16) has a derived bonus of 3]
         for (Stat i : bronan.getStats()) {
             assert (8 < i.getValue());
             assert (16 >= i.getValue());
