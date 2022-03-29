@@ -1,7 +1,7 @@
 /**
  * MIT License
  *
- * Copyright (c) 2022 Noah Owens
+ * Copyright (c) 2022 Noah C Owens
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -21,7 +21,6 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
 package Character.Forge;
 
 import lombok.Getter;
@@ -41,6 +40,7 @@ public class PlayerCharacter {
     @Getter @Setter private int level;
     @Getter @Setter private CharClass charClass;
     @Getter @Setter private Race race;
+    @Getter @Setter private int hp;
     @Getter @Setter private ArrayList<Stat> stats;
     @Getter @Setter private Background background;
     @Getter @Setter private String alignment;
@@ -50,25 +50,35 @@ public class PlayerCharacter {
     public ArrayList<CharFeature> features;
 
     /**
-     * PlayerCharacter constructor contains an instance of an ArrayList named "equipment" for storing adventuring paraphernalia and likewise one for "spells"
+     * PlayerCharacter constructor instantiates an ArrayList named "equipment" for storing adventuring paraphernalia and likewise one for "spells"
      * <p>
      * @param name the character's given name
      * @param level an integer between 1 & 20 representative of the character's power
      * @param charClass the character's profession, expertise, or proclivity (warlock, fighter, cleric, etc.)
      * @param race the character's species (human, goblin, dwarf, etc.)
-     * @param stats a list of seven numeric attributes (HP, STR, DEX, CON, INT, WIS, CHA) which represent a character's skillfulness in a certain area
+     * @param hp an integer representing a character's health points.
+     * @param stats a list of six numeric attributes (STR, DEX, CON, INT, WIS, CHA) which represent a character's skillfulness in a certain area
      * @param background the character's sob story, which may include helpful talents or connections
      * @param alignment a certain... moral guiding light represented in two character pairs (LG, NE, CG, NN)
      */
-    public PlayerCharacter(String name, int level, CharClass charClass, Race race, ArrayList<Stat> stats, Background background, String alignment) {
+    public PlayerCharacter(String name, int level, CharClass charClass, Race race, int hp, ArrayList<Stat> stats, Background background, String alignment) {
         this.name = name;
         this.level = level;
         this.charClass = charClass;
         this.race = race;
+        this.hp = hp;
         this.stats = stats;
         this.background = background;
         this.alignment = alignment;
 
+        equipment = new ArrayList<>();
+        spells = new ArrayList<>();
+    }
+
+    /**
+     * Non-parameterized constructor
+     */
+    public PlayerCharacter() {
         equipment = new ArrayList<>();
         spells = new ArrayList<>();
     }
@@ -86,16 +96,16 @@ public class PlayerCharacter {
     }
 
     /**
-     * Returns a randomized HP total (without considering constitution bonus) considering character level and class hit die
+     * Returns a randomized Hp total (without considering constitution bonus) considering character level and class hit die
      * <p>
-     * @return an HP total ready to be adjusted with constitution
+     * @return an Hp total ready to be adjusted with constitution
      */
-    public int generateHP() {
-        int hp = charClass.hitDie;
+    public int generateHp() {
+        int hp = charClass.getHitDie();
 
         if(level > 1) {
             for(int i = 1; i < level; i++) {
-                int addedHitPoints = rollDie(charClass.hitDie);
+                int addedHitPoints = rollDie(charClass.getHitDie());
                 hp += addedHitPoints;
             }
         }
@@ -103,24 +113,20 @@ public class PlayerCharacter {
         return hp;
     }
 
-    public Stat generateAdjustedHp() {
-        int baseHP = generateHP();
-        int aggregateConModifier = 0;
-        int conModifier = 0;
-        int hpValue = 0;
+    /**
+     * Returns an integer value equal to the hp passed into it + level * constitution bonus
+     * <p>
+     * @param unadjustedHp an integer Hp total (typically the unedited output of generateHp())
+     * @return an integer representing the final hp total of a character
+     */
+    public int conAdjustHp(int unadjustedHp) {
+        int adjustedHp = 0;
+        int intLevel = level;
+        int conBonus = stats.get(2).getBonus();
 
-        for (Stat s : stats) {
-            if (s.getId() == "CON") {
-                conModifier = s.getValue();
-            }
+        adjustedHp = unadjustedHp + (intLevel * conBonus);
 
-            for (int i = 0; i < level; i++) {
-                aggregateConModifier += conModifier;
-            }
-        }
-
-        hpValue = baseHP + aggregateConModifier;
-        return new Stat("HP", hpValue, 0);
+        return adjustedHp;
     }
 
     /**
@@ -151,10 +157,11 @@ public class PlayerCharacter {
 
     /**
      * Initializes the six main stats with a value of 8
+     * (package-private method)
      * <p>
      * @return a list of the six stats in character sheet order
      */
-    public ArrayList<Stat> initStats() {
+    ArrayList<Stat> initStats() {
         ArrayList<Stat> statArrayList = new ArrayList<>();
 
         Stat strength = new Stat("STR", 8, 0);
@@ -175,6 +182,7 @@ public class PlayerCharacter {
         Stat charisma = new Stat("CHA", 8, 0);
         statArrayList.add(charisma);
 
+        System.out.println(statArrayList.toString());
         return statArrayList;
     }
 }

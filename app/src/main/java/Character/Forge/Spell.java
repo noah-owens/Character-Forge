@@ -23,34 +23,14 @@
  */
 package Character.Forge;
 
-import org.checkerframework.checker.units.qual.C;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
-
 /**
- * Test file for CharFeature.java
+ * Spell class creates an object akin to a physical spell card.
+ * Down the line it will potentially be the basis of a GUI view upon
+ * hovering/clicking on a spell.
  * <p>
- * @version v0.1.0
+ * @version v0.2.0
  * @author Noah Owens
  */
-public class CharFeatureTest {
-    CharFeature channelDivinity;
-
-    @BeforeEach
-    public void setUp() {
-        channelDivinity = new CharFeature(2, "Channel Divinity");
-    }
-
-    @Test
-    @DisplayName("Feature getters and setters working")
-    public void testGetterSetter() {
-        channelDivinity.setTitle("Sneak Attack");
-        channelDivinity.setLevel(0);
-
-        String t = channelDivinity.getTitle();
-        int l = channelDivinity.getLevel();
-
-        assert(t == "Sneak Attack" && l == 0);
-    }
+public class Spell {
+    
 }
