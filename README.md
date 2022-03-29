@@ -9,7 +9,7 @@ Character Forge is an app for creating D&amp;D characters and NPCs based on a co
 
 ### Built With
 - [Java](https://www.java.com/en/) (JDK 17)
-- [IntelliJ IDEA 202.3.4](https://confluence.jetbrains.com/display/IDEADEV/IntelliJ+IDEA+2020.3.4+(203.8084.24+build)+Release+Notes) (This version is bundled with the lombok plugin)
+- [IntelliJ IDEA 2020.3.4](https://www.jetbrains.com/idea/download/other.html) (This version is bundled with the lombok plugin)
 - [Gluon Scene Builder](https://gluonhq.com/products/scene-builder/)
 
 ## Getting Started
@@ -48,7 +48,7 @@ If you like what's going on here, feel free to support me on [Ko-Fi](https://ko-
 
 ## License
 
-Copyright (c) 2022 Noah C Owens
+Copyright (c) 2022 Noah Owens
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
