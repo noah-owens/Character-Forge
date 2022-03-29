@@ -212,7 +212,7 @@ public class PlayerCharacter {
      * @return completed stats (only values, bonuses not yet derived)
      */
     private ArrayList<Stat> applyRacialStatChanges(ArrayList<Stat> originalStatsArrayList) {
-        ArrayList<Stat> racialBonusesArrayList = race.getStatChanges();
+        ArrayList<Stat> racialBonusesArrayList = this.race.getStatChanges();
         Stat originalStat;
         Stat raceBonusStat;
         int sumOfValues;

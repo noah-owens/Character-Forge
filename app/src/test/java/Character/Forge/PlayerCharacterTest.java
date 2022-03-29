@@ -41,7 +41,8 @@ public class PlayerCharacterTest {
     PlayerCharacter bronan;
     CharClass bard;
     CharClass barbarian;
-    ArrayList<Stat> lyleStatList;
+    Race human;
+    ArrayList<Stat> humanRaceBonuses;
 
     @BeforeEach
     public void setUp() {
@@ -49,14 +50,21 @@ public class PlayerCharacterTest {
         barbarian = new CharClass("Barbarian", 12, new ArrayList<>());
         lyle = new PlayerCharacter("Lyle", 1, bard, null, 0, new ArrayList<>(), null, "CG");
         bronan = new PlayerCharacter("Bronan", 15, barbarian, null, 0, new ArrayList<>(), null, "CG");
-        lyleStatList = lyle.generateStats();
+        humanRaceBonuses = new ArrayList<>();
+            humanRaceBonuses.add(new Stat("STR", 1, 0));
+            humanRaceBonuses.add(new Stat("DEX", 1, 0));
+            humanRaceBonuses.add(new Stat("CON", 1, 0));
+            humanRaceBonuses.add(new Stat("INT", 1, 0));
+            humanRaceBonuses.add(new Stat("WIS", 1, 0));
+            humanRaceBonuses.add(new Stat("CHA", 1, 0));
+        human = new Race("Human", humanRaceBonuses, new ArrayList<CharFeature>());
     }
 
     /**
      * Test that rollDie() is rolling a number N for which 1<=N<=n
      */
     @Test
-    @DisplayName("Vegas, baby!")
+    @DisplayName("Vegas, baby! (rollDie(n) creates a random number N for which 1<N<n)")
     public void testRollDie() {
         int i = 0;
 
@@ -77,7 +85,7 @@ public class PlayerCharacterTest {
      * Test generateHp() at several levels with different hit die to ensure it stays within legal bounds
      */
     @Test
-    @DisplayName("Make sure that generateHp() results in legal values every time")
+    @DisplayName("generateHp() results in legal values")
     public void testGenerateHp() {
         int hpAtLevelOne;
         int hpAtLevelThree;
@@ -121,36 +129,22 @@ public class PlayerCharacterTest {
 //    }
 
     /**
-     * Tests that initStats() creates the six stats in character sheet order and sets their value to 8
+     * Test that everything is following the rules set by
+     * https://chicken-dinner.com/5e/5e-point-buy.html - Rules as Written tab
      */
     @Test
-    @DisplayName("initStats() is doing it's job")
-    public void testInitStats() {
-        String[] correctOrder = {"STR", "DEX", "CON", "INT", "WIS", "CHA"};
-        ArrayList<Stat> statArrayList = lyle.initStats();
+    @DisplayName("createStatsAndBonuses() generates valid stats")
+    public void testCreateStatsAndBonuses() {
+        bronan.setRace(human);
+        bronan.setStats(bronan.createStatsAndBonuses());
 
-        for(int i = 0; i < correctOrder.length; i++) {
-            String correctStat = correctOrder[i];
-            Stat currentStat = statArrayList.get(i);
+        assert (6 == bronan.getStats().size());
 
-            assert(Objects.equals(correctStat, currentStat.getId()));
-            assert(8 == currentStat.getValue());
-        }
-    }
-
-    /**
-     * Test that generateStats() is following the rules set by https://chicken-dinner.com/5e/5e-point-buy.html - Rules as Written tab
-     * <p>
-     * Currently generateStats() is returning all 8's. It's correctly initializing the stats, but not point buying at all.
-     */
-    @Test
-    @DisplayName("Random point buy is following the rules")
-    public void testGenerateStats() {
-        ArrayList<Stat> testerStats = bronan.generateStats();
-
-        for (Stat stat : testerStats) {
-           int v = stat.getValue();
-           assert(8 <= v && v <= 15);
+        for (Stat i : bronan.getStats()) {
+            assert (8 < i.getValue());
+            assert (16 >= i.getValue());
+            assert (3 >= i.getBonus());
+            assert (-1 <= i.getBonus());
         }
     }
 }
