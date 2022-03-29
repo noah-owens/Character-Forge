@@ -212,4 +212,19 @@ public class PlayerCharacter {
 
         return originalStatsArrayList;
     }
+
+    /**
+     * The only stat generation method you'll ever need! Not really, it just calls applyRacialStatChanges() on generateStats()
+     * and derives the bonuses from there. Once tests are refactored it will be the only public method available for stat creation.
+     * @return An arraylist of Stat objects with size 6 which includes [str,dex,con,int,wis,cha] with populated value and bonus properties
+     */
+    public ArrayList<Stat> createStatsAndBonuses() {
+        ArrayList<Stat> finalStats = applyRacialStatChanges(generateStats());
+
+        for (Stat i : finalStats) {
+            i.setBonus(i.deriveBonus());
+        }
+
+        return finalStats;
+    }
 }
