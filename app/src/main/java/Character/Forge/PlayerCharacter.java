@@ -130,12 +130,27 @@ public class PlayerCharacter {
     }
 
     /**
-     * Initializes the six main stats with a value of 8
-     * (package-private method)
+     * The only stat generation method you'll ever need! Not really, it just calls applyRacialStatChanges() on generateStats()
+     * and derives the bonuses from there. The only public method available for stat creation.
+     * <p>
+     * @return An arraylist of Stat objects with size 6 which includes [str,dex,con,int,wis,cha] with populated value and bonus properties
+     */
+    public ArrayList<Stat> createStatsAndBonuses() {
+        ArrayList<Stat> finalStats = applyRacialStatChanges(generateStats());
+
+        for (Stat i : finalStats) {
+            i.setBonus(i.deriveBonus());
+        }
+
+        return finalStats;
+    }
+
+    /**
+     * Initializes the six main stats with a value of 8 and bonus of 0
      * <p>
      * @return a list of the six stats in character sheet order
      */
-    ArrayList<Stat> initStats() {
+    private ArrayList<Stat> initStats() {
         ArrayList<Stat> statArrayList = new ArrayList<>();
 
         Stat strength = new Stat("STR", 8, 0);
@@ -155,7 +170,7 @@ public class PlayerCharacter {
 
         Stat charisma = new Stat("CHA", 8, 0);
         statArrayList.add(charisma);
-        
+
         return statArrayList;
     }
 
@@ -165,7 +180,7 @@ public class PlayerCharacter {
      * <p>
      * @return an ArrayList of stats which is ready for racial bonus to be applied
      */
-    public ArrayList<Stat> generateStats() {
+    private ArrayList<Stat> generateStats() {
         ArrayList<Stat> initializedStats = initStats();
         int pointBuyLimit = 27;
         int pointBuyTracker = 0;
@@ -192,11 +207,12 @@ public class PlayerCharacter {
 
     /**
      * Takes a character's stats, adds in stat points from the racial bonus arraylist, then spits out the completed stat arraylist
+     * <p>
      * @param originalStatsArrayList stats after point-buy step
      * @return completed stats (only values, bonuses not yet derived)
      */
-    public ArrayList<Stat> applyRacialStatChanges(ArrayList<Stat> originalStatsArrayList) {
-        ArrayList<Stat> racialBonusesArrayList = race.getStatChanges();
+    private ArrayList<Stat> applyRacialStatChanges(ArrayList<Stat> originalStatsArrayList) {
+        ArrayList<Stat> racialBonusesArrayList = this.race.getStatChanges();
         Stat originalStat;
         Stat raceBonusStat;
         int sumOfValues;
@@ -211,20 +227,5 @@ public class PlayerCharacter {
         }
 
         return originalStatsArrayList;
-    }
-
-    /**
-     * The only stat generation method you'll ever need! Not really, it just calls applyRacialStatChanges() on generateStats()
-     * and derives the bonuses from there. Once tests are refactored it will be the only public method available for stat creation.
-     * @return An arraylist of Stat objects with size 6 which includes [str,dex,con,int,wis,cha] with populated value and bonus properties
-     */
-    public ArrayList<Stat> createStatsAndBonuses() {
-        ArrayList<Stat> finalStats = applyRacialStatChanges(generateStats());
-
-        for (Stat i : finalStats) {
-            i.setBonus(i.deriveBonus());
-        }
-
-        return finalStats;
     }
 }
