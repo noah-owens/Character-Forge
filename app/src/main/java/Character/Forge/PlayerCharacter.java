@@ -130,37 +130,6 @@ public class PlayerCharacter {
     }
 
     /**
-     * A costly way to implement a legal point buy system based on an algorithm I'd already written for this purpose which you can
-     * find at: https://github.com/noah-owens/5eRandomizer/blob/main/5e-Randomizer/scripts/main.js
-     * <p>
-     * @return an ArrayList of stats which is ready for racial bonus to be applied
-     */
-     public ArrayList<Stat> generateStats() {
-        ArrayList<Stat> initializedStats = initStats();
-        int pointBuyLimit = 27;
-        int pointBuyTracker = 0;
-        int statLimit = 15;
-        int intIndex;
-        Stat statAtIndex;
-        int valueOfStatAtIndex;
-
-        while (pointBuyTracker < pointBuyLimit) {
-            intIndex = rollDie(6) - 1;
-            statAtIndex = initializedStats.get(intIndex);
-            valueOfStatAtIndex = statAtIndex.getValue();
-
-            if (valueOfStatAtIndex < statLimit) {
-                valueOfStatAtIndex += 1;
-                statAtIndex.setValue(valueOfStatAtIndex);
-
-                pointBuyTracker++;
-            }
-        }
-
-        return initializedStats;
-    }
-
-    /**
      * Initializes the six main stats with a value of 8
      * (package-private method)
      * <p>
@@ -188,5 +157,74 @@ public class PlayerCharacter {
         statArrayList.add(charisma);
         
         return statArrayList;
+    }
+
+    /**
+     * A costly way to implement a legal point buy system based on an algorithm I'd already written for this purpose which you can
+     * find at: https://github.com/noah-owens/5eRandomizer/blob/main/5e-Randomizer/scripts/main.js
+     * <p>
+     * @return an ArrayList of stats which is ready for racial bonus to be applied
+     */
+    public ArrayList<Stat> generateStats() {
+        ArrayList<Stat> initializedStats = initStats();
+        int pointBuyLimit = 27;
+        int pointBuyTracker = 0;
+        int statLimit = 15;
+        int intIndex;
+        Stat statAtIndex;
+        int valueOfStatAtIndex;
+
+        while (pointBuyTracker < pointBuyLimit) {
+            intIndex = rollDie(6) - 1;
+            statAtIndex = initializedStats.get(intIndex);
+            valueOfStatAtIndex = statAtIndex.getValue();
+
+            if (valueOfStatAtIndex < statLimit) {
+                valueOfStatAtIndex += 1;
+                statAtIndex.setValue(valueOfStatAtIndex);
+
+                pointBuyTracker++;
+            }
+        }
+
+        return initializedStats;
+    }
+
+    /**
+     * Takes a character's stats, adds in stat points from the racial bonus arraylist, then spits out the completed stat arraylist
+     * @param originalStatsArrayList stats after point-buy step
+     * @return completed stats (only values, bonuses not yet derived)
+     */
+    public ArrayList<Stat> applyRacialStatChanges(ArrayList<Stat> originalStatsArrayList) {
+        ArrayList<Stat> racialBonusesArrayList = race.getStatChanges();
+        Stat originalStat;
+        Stat raceBonusStat;
+        int sumOfValues;
+
+        for (int i = 0; i < originalStatsArrayList.size(); i++) {
+            originalStat = originalStatsArrayList.get(i);
+            raceBonusStat = racialBonusesArrayList.get(i);
+
+            sumOfValues = originalStat.getValue() + raceBonusStat.getValue();
+
+            originalStat.setValue(sumOfValues);
+        }
+
+        return originalStatsArrayList;
+    }
+
+    /**
+     * The only stat generation method you'll ever need! Not really, it just calls applyRacialStatChanges() on generateStats()
+     * and derives the bonuses from there. Once tests are refactored it will be the only public method available for stat creation.
+     * @return An arraylist of Stat objects with size 6 which includes [str,dex,con,int,wis,cha] with populated value and bonus properties
+     */
+    public ArrayList<Stat> createStatsAndBonuses() {
+        ArrayList<Stat> finalStats = applyRacialStatChanges(generateStats());
+
+        for (Stat i : finalStats) {
+            i.setBonus(i.deriveBonus());
+        }
+
+        return finalStats;
     }
 }

@@ -53,36 +53,4 @@ public class Race {
         this.statChanges = statChanges;
         this.features = features;
     }
-
-    /**
-     * Takes a character's stats, adds in stat points from the character class, then spits out the completed stat array
-     * @param originalStats stats generated in PlayerCharacter class
-     * @return (finally) completed stats
-     */
-    public ArrayList<Stat> applyStatChanges(ArrayList<Stat> originalStats) {
-        ArrayList<Stat> finalStats = new ArrayList<>();
-        int newStatValue = 0;
-        boolean bonusFlag = false;
-
-        for (int i = 0; i < originalStats.size(); i++) {
-            String currentStatId = originalStats.get(i).getId();
-            int currentStatValue = originalStats.get(i).getValue();
-            bonusFlag = false;
-
-            for (Stat s : statChanges) {
-                if (s != null && s.getId() == currentStatId) {
-                    newStatValue = s.getValue() + currentStatValue;
-                    bonusFlag = true;
-                }
-            }
-
-            if (bonusFlag) {
-                finalStats.add(new Stat(currentStatId, newStatValue, 0));
-            } else {
-                finalStats.add(new Stat(currentStatId, currentStatValue, 0));
-            }
-        }
-
-        return finalStats;
-    }
 }
