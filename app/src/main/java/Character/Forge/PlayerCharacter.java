@@ -130,37 +130,6 @@ public class PlayerCharacter {
     }
 
     /**
-     * A costly way to implement a legal point buy system based on an algorithm I'd already written for this purpose which you can
-     * find at: https://github.com/noah-owens/5eRandomizer/blob/main/5e-Randomizer/scripts/main.js
-     * <p>
-     * @return an ArrayList of stats which is ready for racial bonus to be applied
-     */
-     public ArrayList<Stat> generateStats() {
-        ArrayList<Stat> initializedStats = initStats();
-        int pointBuyLimit = 27;
-        int pointBuyTracker = 0;
-        int statLimit = 15;
-        int intIndex;
-        Stat statAtIndex;
-        int valueOfStatAtIndex;
-
-        while (pointBuyTracker < pointBuyLimit) {
-            intIndex = rollDie(6) - 1;
-            statAtIndex = initializedStats.get(intIndex);
-            valueOfStatAtIndex = statAtIndex.getValue();
-
-            if (valueOfStatAtIndex < statLimit) {
-                valueOfStatAtIndex += 1;
-                statAtIndex.setValue(valueOfStatAtIndex);
-
-                pointBuyTracker++;
-            }
-        }
-
-        return initializedStats;
-    }
-
-    /**
      * Initializes the six main stats with a value of 8
      * (package-private method)
      * <p>
@@ -188,5 +157,45 @@ public class PlayerCharacter {
         statArrayList.add(charisma);
         
         return statArrayList;
+    }
+
+    /**
+     * A costly way to implement a legal point buy system based on an algorithm I'd already written for this purpose which you can
+     * find at: https://github.com/noah-owens/5eRandomizer/blob/main/5e-Randomizer/scripts/main.js
+     * <p>
+     * @return an ArrayList of stats which is ready for racial bonus to be applied
+     */
+    public ArrayList<Stat> generateStats() {
+        ArrayList<Stat> initializedStats = initStats();
+        int pointBuyLimit = 27;
+        int pointBuyTracker = 0;
+        int statLimit = 15;
+        int intIndex;
+        Stat statAtIndex;
+        int valueOfStatAtIndex;
+
+        while (pointBuyTracker < pointBuyLimit) {
+            intIndex = rollDie(6) - 1;
+            statAtIndex = initializedStats.get(intIndex);
+            valueOfStatAtIndex = statAtIndex.getValue();
+
+            if (valueOfStatAtIndex < statLimit) {
+                valueOfStatAtIndex += 1;
+                statAtIndex.setValue(valueOfStatAtIndex);
+
+                pointBuyTracker++;
+            }
+        }
+
+        return initializedStats;
+    }
+
+    /**
+     * Takes a character's stats, adds in stat points from the character class, then spits out the completed stat array
+     * @param originalStats stats generated in PlayerCharacter class
+     * @return (finally) completed stats
+     */
+    public ArrayList<Stat> applyStatChanges(ArrayList<Stat> originalStats) {
+
     }
 }
