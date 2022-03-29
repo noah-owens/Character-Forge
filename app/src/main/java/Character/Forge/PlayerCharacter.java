@@ -138,17 +138,22 @@ public class PlayerCharacter {
      public ArrayList<Stat> generateStats() {
         ArrayList<Stat> initializedStats = initStats();
         int pointBuyLimit = 27;
+        int pointBuyTracker = 0;
         int statLimit = 15;
+        int intIndex;
+        Stat statAtIndex;
+        int valueOfStatAtIndex;
 
-        for(int i = 0; i < pointBuyLimit; i++) {
-            int statIndex = rollDie(6) - 1;
-            Stat atIndex = initializedStats.get(statIndex);
+        while (pointBuyTracker < pointBuyLimit) {
+            intIndex = rollDie(6) - 1;
+            statAtIndex = initializedStats.get(intIndex);
+            valueOfStatAtIndex = statAtIndex.getValue();
 
-            if(atIndex.getValue() < statLimit) {
-                atIndex.setValue(atIndex.getValue() + 1);
-            }
-            else {
-                i--;
+            if (valueOfStatAtIndex < statLimit) {
+                valueOfStatAtIndex += 1;
+                statAtIndex.setValue(valueOfStatAtIndex);
+
+                pointBuyTracker++;
             }
         }
 
@@ -181,8 +186,7 @@ public class PlayerCharacter {
 
         Stat charisma = new Stat("CHA", 8, 0);
         statArrayList.add(charisma);
-
-        System.out.println(statArrayList.toString());
+        
         return statArrayList;
     }
 }
