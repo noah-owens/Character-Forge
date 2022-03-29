@@ -191,11 +191,25 @@ public class PlayerCharacter {
     }
 
     /**
-     * Takes a character's stats, adds in stat points from the character class, then spits out the completed stat array
-     * @param originalStats stats generated in PlayerCharacter class
-     * @return (finally) completed stats
+     * Takes a character's stats, adds in stat points from the racial bonus arraylist, then spits out the completed stat arraylist
+     * @param originalStatsArrayList stats after point-buy step
+     * @return completed stats (only values, bonuses not yet derived)
      */
-    public ArrayList<Stat> applyStatChanges(ArrayList<Stat> originalStats) {
+    public ArrayList<Stat> applyRacialStatChanges(ArrayList<Stat> originalStatsArrayList) {
+        ArrayList<Stat> racialBonusesArrayList = race.getStatChanges();
+        Stat originalStat;
+        Stat raceBonusStat;
+        int sumOfValues;
 
+        for (int i = 0; i < originalStatsArrayList.size(); i++) {
+            originalStat = originalStatsArrayList.get(i);
+            raceBonusStat = racialBonusesArrayList.get(i);
+
+            sumOfValues = originalStat.getValue() + raceBonusStat.getValue();
+
+            originalStat.setValue(sumOfValues);
+        }
+
+        return originalStatsArrayList;
     }
 }
