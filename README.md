@@ -28,7 +28,7 @@ gradle run
 
 ## Contributing
 
-If you would like to help out, don't hesitate to create a pull request! Both code and non-code contributions are welcome. Alternatively, create an issue with the tag "suggestion", and I'll be sure to give it a look!
+If you would like to help out, don't hesitate to create a pull request! Both code and non-code contributions are welcome. Alternatively, create an issue, and I'll be sure to give it a look! Before contributing, make sure to check out the [Contributing Guidelines](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 ## Contact 
 

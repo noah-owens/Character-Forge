@@ -20,17 +20,15 @@ post.
 
 ### Solve an Issue
 
-You can also trawl through [existing issues](https://github.com/noah-owens/Character-Forge/issues) to find one that interests you. I will likely not be assigning issues to anyone, 
+You can also trawl through [existing issues](https://github.com/noah-owens/Character-Forge/issues) to find one that interests you. I will likely not be assigning issues to anyone (except maybe myself sometimes, 
 since that seems like a technique one would use with a slightly bigger team of dedicated developers. If you would like to solve an issue, you're welcome to open a Pull Request
-that fixes it!
+with a fix!
 
 ## Pull Requests
 
-This project uses a workflow known as [Gitflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) 
-which you should be familiar with before making commits. I have recently learned that Gitflow is basically considered an outdated strategy at this point, and may look at 
-changing to a trunk-based workflow in the near future.
+This project uses a workflow known as [Github Flow](https://docs.github.com/en/get-started/quickstart/github-flow) which you should be familiar with before making commits.
 
-A pull request will never be denied solely on account of not using Gitflow principles, so you don't need to agonize over it if you have little
+A pull request will never be denied solely on account of not using Github Flow principles, so you don't need to agonize over it if you have little
 or no familiarity with the workflow. It's the ideas that matter, not the technique!
 
-*This is a living document: as long as it refers to Gitflow, that is the workflow I will continue to prioritize.*
+*This is a living document: as long as it refers to Github Flow, that is the workflow I will continue to prioritize.*
