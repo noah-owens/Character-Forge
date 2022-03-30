@@ -21,11 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package Character.Forge;
+package Character.Forge.UI;
 
-public class MainController {
+import Character.Forge.App;
+import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+
+public class HomeController {
+
+    @FXML Label txt5e;
+    @FXML Label txtCharForge;
+    @FXML Button randomButton;
+    @FXML Button choiceButton;
 
     public void initialize() {
 
+    }
+
+    public void goToCharacterSheet() {
+        App.stageOne.show();
+        App.stage.close();
+    }
+
+    public void goToChoiceScreen() {
+        App.stageTwo.show();
+        App.stage.close();
     }
 }

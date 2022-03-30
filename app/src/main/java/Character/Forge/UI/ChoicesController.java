@@ -21,15 +21,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package Character.Forge;
+package Character.Forge.UI;
 
-/**
- * Equipment class creates an object representative of adventuring miscellany
- * roughly the size you can squeeze into a rucksack.
- * <p>
- * @version v0.2.0
- * @author Noah Owens
- */
-public class Equipment {
-
+public class ChoicesController {
 }

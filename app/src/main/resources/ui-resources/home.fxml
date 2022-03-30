@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-border-radius: 15; -fx-background-color: #1B1725;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Character.Forge.HomeController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" style="-fx-border-radius: 15; -fx-background-color: #1B1725;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Character.Forge.UI.HomeController">
    <children>
        <!-- Title Pane -->
       <Pane id="titlePane" layoutY="-1.0" prefHeight="304.0" prefWidth="1000.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
