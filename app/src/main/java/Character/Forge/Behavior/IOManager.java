@@ -25,6 +25,7 @@ package Character.Forge.Behavior;
 import Character.Forge.Data.*;
 
 import java.io.*;
+import java.nio.Buffer;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -48,23 +49,31 @@ public class IOManager {
                     //  Writing better json would be preferable to accepting worse json however.
                     // .setLenient()
                     .create();
-    PrintWriter writer;
+
 
     /**
      * Non-parameterized constructor allows for accessing methods outside IOManager class
      */
     public IOManager() {}
 
-    public void jsonWrite(Object obj, File file) {
+    public void jsonWrite(Object obj, File filePath) {
         String jsonObject = gson.toJson(obj);
+        BufferedWriter writer;
 
         try {
-            writer = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+            // Create writer
+            writer = new BufferedWriter(new FileWriter(filePath));
+
+            // Write object to specified file
             writer.write(jsonObject);
+
+            // Shut it all down
+            writer.flush();
+            writer.close();
         } catch (IOException e) {
             log.error(e.getMessage());
         } finally {
-            writer.close();
+
         }
     }
 }

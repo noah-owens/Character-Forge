@@ -23,12 +23,16 @@
  */
 package Character.Forge;
 
+import Character.Forge.Behavior.*;
+import Character.Forge.Data.*;
+import Character.Forge.UI.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.util.ArrayList;
 
 /**
@@ -67,6 +71,19 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        App.launch();
+        //App.launch();
+
+        Stat str = new Stat("str", 18, 4);
+        CharFeature bald = new CharFeature(0, "Super Duper Bald");
+        ArrayList<Stat> stats = new ArrayList<>();
+        stats.add(str);
+        ArrayList<CharFeature> features = new ArrayList<>();
+        features.add(bald);
+
+        IOManager ioManager = new IOManager();
+        Race human = new Race("Human", stats, features);
+        File filePath = new File("resources/serialized-objects/race.json");
+
+        ioManager.jsonWrite(human, filePath);
     }
 }
