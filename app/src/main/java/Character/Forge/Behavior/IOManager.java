@@ -22,11 +22,14 @@
  * SOFTWARE.
  */
 package Character.Forge.Behavior;
+import Character.Forge.Data.*;
 
-import java.io.IOException;
+import java.io.*;
+
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import lombok.extern.log4j.Log4j2;
 
 /**
  * This class will be capable of writing data-classes to json (using Gson library) and reading them
@@ -34,6 +37,8 @@ import com.google.gson.GsonBuilder;
  * @version 0.2.1
  * @author Noah Owens
  */
+
+@Log4j2
 public class IOManager {
     Gson gson = new GsonBuilder()
                     .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY)
@@ -43,11 +48,23 @@ public class IOManager {
                     //  Writing better json would be preferable to accepting worse json however.
                     // .setLenient()
                     .create();
+    PrintWriter writer;
 
     /**
      * Non-parameterized constructor allows for accessing methods outside IOManager class
      */
     public IOManager() {}
 
+    public void jsonWrite(Object obj, File file) {
+        String jsonObject = gson.toJson(obj);
 
+        try {
+            writer = new PrintWriter(new BufferedWriter(new FileWriter(file)));
+            writer.write(jsonObject);
+        } catch (IOException e) {
+            log.error(e.getMessage());
+        } finally {
+            writer.close();
+        }
+    }
 }
