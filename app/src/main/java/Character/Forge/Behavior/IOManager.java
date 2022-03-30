@@ -23,5 +23,31 @@
  */
 package Character.Forge.Behavior;
 
+import java.io.IOException;
+import com.google.gson.FieldNamingPolicy;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+/**
+ * This class will be capable of writing data-classes to json (using Gson library) and reading them
+ * from json files stored at /resources/serialized-objects/[file].json
+ * @version 0.2.1
+ * @author Noah Owens
+ */
 public class IOManager {
+    Gson gson = new GsonBuilder()
+                    .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY)
+                    .serializeNulls()
+                    .setPrettyPrinting()
+                    //  Uncomment setLenient if reading handwritten json becomes an issue.
+                    //  Writing better json would be preferable to accepting worse json however.
+                    // .setLenient()
+                    .create();
+
+    /**
+     * Non-parameterized constructor allows for accessing methods outside IOManager class
+     */
+    public IOManager() {}
+
+
 }
