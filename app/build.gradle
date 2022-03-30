@@ -68,6 +68,7 @@ javafx {
 
 license {
     header = rootProject.file('LICENSE')
+    excludes(["**/*.json"])
 }
 
 check.dependsOn jacocoTestReport
