@@ -1,0 +1,16 @@
+{
+  "name": "Human",
+  "statChanges": [
+    {
+      "id": "str",
+      "value": 18,
+      "bonus": 4
+    }
+  ],
+  "features": [
+    {
+      "level": 0,
+      "title": "Super Duper Bald"
+    }
+  ]
+}
