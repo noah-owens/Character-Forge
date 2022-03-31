@@ -56,13 +56,26 @@ public class IOManager {
      */
     public IOManager() {}
 
-    public void jsonWrite(Object obj, File filePath) {
+    /**
+     * Writes an object into json at specified location.
+     * <p>
+     * When specifying path in this project, the filepath passed to jsonWrite() should be in
+     * src/main/resources/serialized-objects/[fileName].json format.
+     * @param obj an object to be serialized
+     * @param filePath destination file, typically src/main/resources/serialized-objects/[fileName].json
+     * @param overwriteData true if file should be overwritten, false if data should be appended.
+     */
+    public void jsonWrite(Object obj, String filePath, boolean overwriteData) {
         String jsonObject = gson.toJson(obj);
         BufferedWriter writer;
 
         try {
-            // Create writer
-            writer = new BufferedWriter(new FileWriter(filePath));
+            File file = new File(filePath);
+
+            // Create writer with append parameter set to the opposite of overwriteData,
+            // so if overwriteData is true, append will be false.
+            writer = new BufferedWriter(new FileWriter(file, !overwriteData));
+
 
             // Write object to specified file
             writer.write(jsonObject);
@@ -72,8 +85,6 @@ public class IOManager {
             writer.close();
         } catch (IOException e) {
             log.error(e.getMessage());
-        } finally {
-
         }
     }
 }
