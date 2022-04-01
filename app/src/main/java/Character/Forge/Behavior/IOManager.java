@@ -49,6 +49,8 @@ public class IOManager {
                     //  Writing better json would be preferable to accepting worse json however.
                     // .setLenient()
                     .create();
+    BufferedWriter writer;
+    BufferedReader reader;
 
 
     /**
@@ -67,24 +69,60 @@ public class IOManager {
      */
     public void jsonWrite(Object obj, String filePath, boolean overwriteData) {
         String jsonObject = gson.toJson(obj);
-        BufferedWriter writer;
 
         try {
             File file = new File(filePath);
 
-            // Create writer with append parameter set to the opposite of overwriteData,
+            // create writer with append parameter set to the opposite of overwriteData,
             // so if overwriteData is true, append will be false.
             writer = new BufferedWriter(new FileWriter(file, !overwriteData));
 
-
             // Write object to specified file
             writer.write(jsonObject);
-
-            // Shut it all down
-            writer.flush();
-            writer.close();
         } catch (IOException e) {
-            log.error(e.getMessage());
+            logException(e);
+        } finally {
+            // shut it all down
+            try {
+                if (writer != null) {
+                    writer.flush();
+                    writer.close();
+                }
+            } catch (IOException e) {
+                logException(e);
+            }
         }
+    }
+
+    /**
+     * Check to see if the file has been used.
+     * <p>
+     * @param file object of type File
+     * @return true if file is empty, false otherwise
+     */
+    private boolean fileIsEmpty(File file) {
+        boolean empty = false;
+
+        try {
+            // create buffered file reader
+            reader = new BufferedReader(new FileReader(file));
+        } catch (IOException e) {
+            logException(e);
+        } finally {
+            try {
+            // close it up
+                if (reader != null) {
+                    reader.close();
+                }
+            } catch (IOException e) {
+                logException(e);
+            }
+        }
+
+        return empty;
+    }
+
+    private void logException(Exception error) {
+        log.error(error.getMessage());
     }
 }
