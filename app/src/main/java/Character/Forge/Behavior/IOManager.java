@@ -140,7 +140,12 @@ public class IOManager {
         return empty;
     }
 
-    private void logException(Exception error) {
-        log.error(error.getMessage());
+    /**
+     * Utilize logj42 log.error() to log caught exceptions
+     * <p>
+     * @param exception caught exception
+     */
+    private void logException(Exception exception) {
+        log.error(exception.getMessage());
     }
 }
