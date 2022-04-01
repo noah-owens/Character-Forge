@@ -103,16 +103,34 @@ public class IOManager {
     private boolean fileIsEmpty(File file) {
         boolean empty = false;
 
-        try {
-            // create buffered file reader
-            reader = new BufferedReader(new FileReader(file));
-        } catch (IOException e) {
-            logException(e);
-        } finally {
+        if (file.length() == 0) {
+            // check if a file is empty the easy way
+            empty = true;
+        } else {
             try {
-            // close it up
-                if (reader != null) {
-                    reader.close();
+                // check if a file only contains whitespace
+                FileInputStream inputStream = new FileInputStream(file);
+                InputStreamReader inputReader = new InputStreamReader(inputStream);
+                reader = new BufferedReader(inputReader);
+
+                // non IO variables
+                String line;
+                int letterCtr = 0;
+                int spaceCtr = 0;
+
+                // read first line and determine spaces vs words count
+                if ((line = reader.readLine()) != null) {
+                    for (char c : line.toCharArray()) {
+                        if (c == ' ') {
+                            spaceCtr++;
+                        } else if (c != ' ') {
+                            letterCtr++;
+                        }
+                    }
+                }
+
+                if (spaceCtr < 0 && letterCtr == 0) {
+                    empty = true;
                 }
             } catch (IOException e) {
                 logException(e);
