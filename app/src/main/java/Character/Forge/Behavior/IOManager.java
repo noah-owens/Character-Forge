@@ -22,10 +22,8 @@
  * SOFTWARE.
  */
 package Character.Forge.Behavior;
-import Character.Forge.Data.*;
 
 import java.io.*;
-import java.nio.Buffer;
 
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -82,6 +80,9 @@ public class IOManager {
             if (fileIsEmpty(file) || overwriteData) {
                 writer.write("[");
                 requiresCloseBracket = true;
+            } else if (!fileIsEmpty(file)) {
+                replaceLastCharacter(file);
+                requiresCloseBracket = true;
             }
 
             // Write object to specified file
@@ -93,18 +94,7 @@ public class IOManager {
         } catch (IOException e) {
             logException(e);
         } finally {
-            // shut it all down
-            try {
-                if (writer != null) {
-                    writer.flush();
-                    writer.close();
-                }
-                if (reader != null) {
-                    reader.close();
-                }
-            } catch (IOException e) {
-                logException(e);
-            }
+            shutdownReaderWriter();
         }
     }
 
@@ -116,7 +106,7 @@ public class IOManager {
     private void replaceLastCharacter(File file) {
         try {
             File tempFile = new File("src/main/resources/temp/temp_" + file.getName());
-            File newFile;
+            String filePath = file.getPath();
             FileInputStream inputStream = new FileInputStream(file);
             InputStreamReader inputReader = new InputStreamReader(inputStream);
             reader = new BufferedReader(inputReader);
@@ -135,12 +125,15 @@ public class IOManager {
 
             writer = new BufferedWriter(new FileWriter(tempFile));
             writer.write(String.valueOf(sb));
+            boolean fileDeleted = file.delete();
+            boolean fileRenamed = tempFile.renameTo(new File(filePath));
 
-        } catch (IOException e) {
+            log.info("Original File Deleted: " + fileDeleted + "\n Temp File Renamed: " + fileRenamed);
+        } catch (IOException | SecurityException e) {
             logException(e);
+        } finally {
+            shutdownReaderWriter();
         }
-
-
     }
 
     /**
@@ -184,14 +177,7 @@ public class IOManager {
             } catch (IOException e) {
                 logException(e);
             } finally {
-                // shut it all down
-                try {
-                    if (reader != null) {
-                        reader.close();
-                    }
-                } catch (IOException e) {
-                    logException(e);
-                }
+                shutdownReaderWriter();
             }
         }
         return empty;
@@ -204,5 +190,22 @@ public class IOManager {
      */
     private void logException(Exception exception) {
         log.error(exception.getMessage());
+    }
+
+    /**
+     * Close and return system resources if in use
+     */
+    private void shutdownReaderWriter() {
+        try {
+            if (writer != null) {
+                writer.flush();
+                writer.close();
+            }
+            if (reader != null) {
+                reader.close();
+            }
+        } catch (IOException e) {
+            logException(e);
+        }
     }
 }

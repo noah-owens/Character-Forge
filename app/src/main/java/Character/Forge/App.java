@@ -32,6 +32,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 /**
  * App class launches GUI
  * <p>
@@ -47,27 +49,41 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        final String windowTitle = "Character Forge";
+
         FXMLLoader loader = new FXMLLoader((getClass().getResource("/ui-resources/home.fxml")));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Character Forge");
+        stage.setTitle(windowTitle);
         stage.show();
 
         FXMLLoader loaderOne = new FXMLLoader((getClass().getResource("/ui-resources/main.fxml")));
         Parent rootOne = loaderOne.load();
         Scene sceneOne = new Scene(rootOne);
         stageOne.setScene(sceneOne);
-        stageOne.setTitle("Character Forge");
+        stageOne.setTitle(windowTitle);
 
         FXMLLoader loaderTwo = new FXMLLoader((getClass().getResource("/ui-resources/choices.fxml")));
         Parent rootTwo = loaderTwo.load();
         Scene sceneTwo = new Scene(rootTwo);
         stageTwo.setScene(sceneTwo);
-        stageTwo.setTitle("Character Forge");
+        stageTwo.setTitle(windowTitle);
     }
 
     public static void main(String[] args) {
-        App.launch();
+        //App.launch();
+
+        ArrayList<Stat> bonuses = new ArrayList<>();
+        bonuses.add(new Stat("str", 1, 0));
+        ArrayList<CharFeature> features = new ArrayList<>();
+        features.add(new CharFeature(0, "Washing of Hands"));
+
+        Race human = new Race("Human", bonuses, features);
+
+        String filePath = "src/main/resources/serialized-objects/race2.json";
+        IOManager ioManager = new IOManager();
+
+        ioManager.jsonWrite(human, filePath, false);
     }
 }
