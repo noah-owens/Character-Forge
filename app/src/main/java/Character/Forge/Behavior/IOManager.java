@@ -34,7 +34,7 @@ import lombok.extern.log4j.Log4j2;
 
 /**
  * This class will be capable of writing data-classes to json (using Gson library) and reading them
- * from json files stored at /resources/serialized-objects/[file].json
+ * from json files stored at src/main/resources/serialized-objects/[file].json
  * @version 0.2.1
  * @author Noah Owens
  */
@@ -69,6 +69,7 @@ public class IOManager {
      */
     public void jsonWrite(Object obj, String filePath, boolean overwriteData) {
         String jsonObject = gson.toJson(obj);
+        boolean requiresCloseBracket = false;
 
         try {
             File file = new File(filePath);
@@ -77,8 +78,18 @@ public class IOManager {
             // so if overwriteData is true, append will be false.
             writer = new BufferedWriter(new FileWriter(file, !overwriteData));
 
+            // Make first character in file an open bracket
+            if (fileIsEmpty(file) || overwriteData) {
+                writer.write("[");
+                requiresCloseBracket = true;
+            }
+
             // Write object to specified file
             writer.write(jsonObject);
+
+            if (requiresCloseBracket) {
+                writer.write("]");
+            }
         } catch (IOException e) {
             logException(e);
         } finally {
@@ -88,10 +99,48 @@ public class IOManager {
                     writer.flush();
                     writer.close();
                 }
+                if (reader != null) {
+                    reader.close();
+                }
             } catch (IOException e) {
                 logException(e);
             }
         }
+    }
+
+    /**
+     * Removes a "]" if it is the last character and replaces with a "," by reading the content out to a
+     * temporary file and copying it back over the original file.
+     * @param file file which needs a trailing close bracket replaced by a comma.
+     */
+    private void replaceLastCharacter(File file) {
+        try {
+            File tempFile = new File("src/main/resources/temp/temp_" + file.getName());
+            File newFile;
+            FileInputStream inputStream = new FileInputStream(file);
+            InputStreamReader inputReader = new InputStreamReader(inputStream);
+            reader = new BufferedReader(inputReader);
+            StringBuilder sb = new StringBuilder();
+            String line = "";
+
+            while ((line = reader.readLine()) != null) {
+                sb.append(line).append("\n");
+            }
+
+            int closeBracketIndex = sb.lastIndexOf("]");
+            if (closeBracketIndex > -1){
+                sb.deleteCharAt(closeBracketIndex);
+                sb.append(",");
+            }
+
+            writer = new BufferedWriter(new FileWriter(tempFile));
+            writer.write(String.valueOf(sb));
+
+        } catch (IOException e) {
+            logException(e);
+        }
+
+
     }
 
     /**
