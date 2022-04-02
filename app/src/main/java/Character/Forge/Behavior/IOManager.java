@@ -100,7 +100,7 @@ public class IOManager {
      * @param file object of type File
      * @return true if file is empty, false otherwise
      */
-    private boolean fileIsEmpty(File file) {
+    public boolean fileIsEmpty(File file) {
         boolean empty = false;
 
         if (file.length() == 0) {
@@ -134,9 +134,17 @@ public class IOManager {
                 }
             } catch (IOException e) {
                 logException(e);
+            } finally {
+                // shut it all down
+                try {
+                    if (reader != null) {
+                        reader.close();
+                    }
+                } catch (IOException e) {
+                    logException(e);
+                }
             }
         }
-
         return empty;
     }
 
