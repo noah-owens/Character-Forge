@@ -123,7 +123,7 @@ public class IOManager {
                     for (char c : line.toCharArray()) {
                         if (c == ' ') {
                             spaceCtr++;
-                        } else if (c != ' ') {
+                        } else {
                             letterCtr++;
                         }
                     }
