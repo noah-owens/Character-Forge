@@ -79,9 +79,16 @@ public class IOManager<T> {
         String jsonObjectList = gson.toJson(objList);
 
         try {
-            writer = new BufferedWriter(new FileWriter(new File(filePath), false));
+            File file = new File(filePath);
+            boolean fileDeleted = file.delete();
+            File blankFile = new File(filePath);
+
+            log.info("File at:" + filePath + " deleted = " + fileDeleted);
+
+            writer = new BufferedWriter(new FileWriter(blankFile, false));
+            writer.write("");
             writer.write(jsonObjectList);
-        } catch (IOException e) {
+        } catch (IOException | SecurityException e) {
             logException(e);
         } finally {
             shutdownReaderWriter();
@@ -91,7 +98,7 @@ public class IOManager<T> {
     // Overloaded method appendFile() takes lists of several different types to do the same operation
 
     /**
-     * Deserialize ArrayList from file, use add method UNFINISHED
+     * Deserialize ArrayList from file, use add method to append list, then reserialize.
      * <p>
      * @param filePath string location of file, typically src/main/resources/serialized-objects/[fileName].json
      */

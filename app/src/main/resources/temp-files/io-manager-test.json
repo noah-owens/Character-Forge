@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Lightfoot Halfling",
+    "statChanges": [
+      {
+        "id": "DEX",
+        "value": 2,
+        "bonus": 0
+      },
+      {
+        "id": "CHA",
+        "value": 1,
+        "bonus": 0
+      }
+    ],
+    "features": [
+      {
+        "level": 0,
+        "title": "Short"
+      },
+      {
+        "level": 0,
+        "title": "The one where you re-roll 1s"
+      }
+    ]
+  }
+]

@@ -103,27 +103,6 @@ public class PlayerCharacterTest {
     }
 
     /**
-     * Test that rollDie() is rolling a number N for which 1<=N<=n
-     */
-    @Test
-    @DisplayName("Vegas, baby! (rollDie(n) creates a random number N for which 1<N<n)")
-    public void testRollDie() {
-        int i = 0;
-
-        while(i < 100) {
-            int d2 = lyle.rollDie(2);
-            assert(d2 > 0 && d2 <= 2);
-
-            int d8 = lyle.rollDie(8);
-            assert(d8 > 0 && d8 <= 8);
-
-            int d20 = lyle.rollDie(20);
-            assert(d20 > 0 && d20 <= 20);
-            i++;
-        }
-    }
-
-    /**
      * Test generateHp() at several levels with different hit die to ensure it stays within legal bounds
      */
     @Test
