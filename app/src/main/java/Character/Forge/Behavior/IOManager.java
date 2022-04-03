@@ -41,7 +41,9 @@ import lombok.extern.log4j.Log4j2;
  * This class will be capable of writing data-classes to json (using Gson library) and reading them
  * from json files stored at src/main/resources/serialized-objects/[file].json
  * <p>
- * Uses generic typing to serialize and deserialize different data-class types
+ * Uses generic typing to serialize and deserialize different data-class types, meaning
+ * a new IOManager<[object type]> will be required for each type of object being serialized. A small
+ * price to pay for not needing to write 21 separate read, write, and append methods.
  * <p>
  * @version 0.2.1
  * @author Noah Owens
