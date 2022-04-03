@@ -1,4 +1,4 @@
-# Character Forge - v0.2.1
+# Character Forge - v0.3.0
 
 ![Build Status](https://github.com/noah-owens/Character-Forge/actions/workflows/java-ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/noah-owens/Character-Forge/branch/main/graph/badge.svg?token=4P24PAUOWH)](https://codecov.io/gh/noah-owens/Character-Forge)
@@ -44,7 +44,7 @@ If you like what's going on here, feel free to support me on [Ko-Fi](https://ko-
 
 - [Jeroen van Erp](https://github.com/hierynomus) - Whose amazing [license plugin](https://github.com/noah-owens/Character-Forge) for gradle makes everything easier
 - [Othneil Drew](https://github.com/othneildrew) - For the awesome [README template](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md) I pulled heavy inspiration from
-- [The team over at Gitmoji](https://gitmoji.dev/) - For making a standardized commit labeling system I've been trying to use lately.
+- [Gitmoji](https://gitmoji.dev/) - For making a standardized commit labeling system that I just think is pretty.
 
 ## License
 

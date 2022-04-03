@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.3.0] - 2022-04-02
+### Added
+- Gson and Log4j dependencies 
+- IOManager class for handling gson serialization/deserialization
+### Changed
+- Package structure
+- Add new directories in src/main/resources/
+
 ## [0.2.1] - 2022-03-29
 ### Added
 - gradle-ci.yml action which runs gradle build and uploads code coverage report to codecov.io
@@ -34,6 +42,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Lombok dependencies added to build.gradle
 - Plugins for JavaFX and Jacoco added to build.gradle
 
+[0.3.0]: https://github.com/noah-owens/Character-Forge/releases/tag/v0.3.0
+[0.2.1]: https://github.com/noah-owens/Character-Forge/releases/tag/v0.2.1
 [0.2.0]: https://github.com/noah-owens/Character-Forge/releases/tag/v0.2.0
 [0.1.0]: https://github.com/noah-owens/Character-Forge/releases/tag/v0.1.0
 [0.0.0]: https://github.com/noah-owens/Character-Forge/releases/tag/v0.0.0
