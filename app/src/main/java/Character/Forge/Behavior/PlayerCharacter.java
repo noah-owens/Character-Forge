@@ -50,7 +50,7 @@ public class PlayerCharacter {
     public ArrayList<String> spells;
     public ArrayList<CharFeature> features;
 
-    private RandomHelper r = new RandomHelper();
+    private final RandomHelper r = new RandomHelper();
 
     /**
      * PlayerCharacter constructor instantiates an ArrayList named "equipment" for storing adventuring paraphernalia and likewise one for "spells"
