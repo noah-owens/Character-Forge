@@ -181,7 +181,7 @@ public class PlayerCharacter {
         int valueOfStatAtIndex;
 
         while (pointBuyTracker < pointBuyLimit) {
-            intIndex = r.rollDie(6) - 1;
+            intIndex = r.randNum(6);
             statAtIndex = initializedStats.get(intIndex);
             valueOfStatAtIndex = statAtIndex.getValue();
 
