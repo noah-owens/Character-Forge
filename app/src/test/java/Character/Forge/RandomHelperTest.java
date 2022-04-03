@@ -23,14 +23,16 @@
  */
 package Character.Forge;
 
-import Character.Forge.Behavior.PlayerCharacter;
 import Character.Forge.Behavior.RandomHelper;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
+/**
+ * Test file for RandomHelper.java
+ * <p>
+ * @version v0.3.1
+ * @author Noah Owens
+ */
 public class RandomHelperTest {
     RandomHelper r = new RandomHelper();
 
