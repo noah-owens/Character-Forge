@@ -1,4 +1,4 @@
-# Character Forge - v0.3.0
+# Character Forge - v0.3.1
 
 ![Build Status](https://github.com/noah-owens/Character-Forge/actions/workflows/java-ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/noah-owens/Character-Forge/branch/main/graph/badge.svg?token=4P24PAUOWH)](https://codecov.io/gh/noah-owens/Character-Forge)
