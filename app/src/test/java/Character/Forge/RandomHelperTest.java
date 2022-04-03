@@ -38,20 +38,37 @@ public class RandomHelperTest {
      * Test that rollDie() is rolling a number N for which 1<=N<=n
      */
     @Test
-    @DisplayName("Vegas, baby! (rollDie(n) creates a random number N for which 1<N<n)")
+    @DisplayName("Vegas, baby! (rollDie(n) creates a random number N for which 1<=N<=n)")
     public void testRollDie() {
         int i = 0;
 
         while(i < 100) {
             int d2 = r.rollDie(2);
-            assert(d2 > 0 && d2 <= 2);
+            assert (d2 > 0 && d2 <= 2);
 
             int d8 = r.rollDie(8);
-            assert(d8 > 0 && d8 <= 8);
+            assert (d8 > 0 && d8 <= 8);
 
             int d20 = r.rollDie(20);
-            assert(d20 > 0 && d20 <= 20);
+            assert (d20 > 0 && d20 <= 20);
             i++;
         }
     }
+
+    /**
+     * Test that randNum is creating an integer from 0 to n
+     */
+    @Test
+    @DisplayName("randNum(n) creates a number N for which 0<=N<n")
+    public void testRandNum() {
+        int i = 0;
+        int testNum;
+
+        while (i < 100) {
+            testNum = r.randNum(6);
+            assert (0 <= testNum && testNum < 6);
+            i++;
+        }
+    }
+
 }
