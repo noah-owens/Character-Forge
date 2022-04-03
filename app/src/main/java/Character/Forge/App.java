@@ -32,8 +32,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
 /**
  * App class launches GUI
  * <p>
@@ -72,18 +70,6 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        //App.launch();
-
-        ArrayList<Stat> bonuses = new ArrayList<>();
-        bonuses.add(new Stat("str", 1, 0));
-        ArrayList<CharFeature> features = new ArrayList<>();
-        features.add(new CharFeature(0, "Washing of Hands"));
-
-        Race human = new Race("Human", bonuses, features);
-
-        String filePath = "src/main/resources/serialized-objects/race2.json";
-        IOManager ioManager = new IOManager();
-
-        ioManager.jsonWrite(human, filePath, false);
+        App.launch();
     }
 }
