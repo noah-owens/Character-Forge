@@ -23,13 +23,14 @@
  */
 package Character.Forge;
 
+import Character.Forge.Behavior.*;
+import Character.Forge.Data.*;
+import Character.Forge.UI.*;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
 
 /**
  * App class launches GUI
@@ -46,24 +47,26 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader((getClass().getResource("/home.fxml")));
+        final String windowTitle = "Character Forge";
+
+        FXMLLoader loader = new FXMLLoader((getClass().getResource("/ui-resources/home.fxml")));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         stage.setScene(scene);
-        stage.setTitle("Character Forge");
+        stage.setTitle(windowTitle);
         stage.show();
 
-        FXMLLoader loaderOne = new FXMLLoader((getClass().getResource("/main.fxml")));
+        FXMLLoader loaderOne = new FXMLLoader((getClass().getResource("/ui-resources/main.fxml")));
         Parent rootOne = loaderOne.load();
         Scene sceneOne = new Scene(rootOne);
         stageOne.setScene(sceneOne);
-        stageOne.setTitle("Character Forge");
+        stageOne.setTitle(windowTitle);
 
-        FXMLLoader loaderTwo = new FXMLLoader((getClass().getResource("/choices.fxml")));
+        FXMLLoader loaderTwo = new FXMLLoader((getClass().getResource("/ui-resources/choices.fxml")));
         Parent rootTwo = loaderTwo.load();
         Scene sceneTwo = new Scene(rootTwo);
         stageTwo.setScene(sceneTwo);
-        stageTwo.setTitle("Character Forge");
+        stageTwo.setTitle(windowTitle);
     }
 
     public static void main(String[] args) {

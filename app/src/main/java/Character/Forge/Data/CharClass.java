@@ -21,30 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package Character.Forge;
+package Character.Forge.Data;
 
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+
 /**
- * CharFeature class creates an [integer, string] pair object which represents the level at which a feature is unlocked, and the title
- * of the feature in question.
+ * CharClass class creates an object which represents one of the main class types in the game.
+ * At some future point it will become the parent of a "CharSubclass" inherited class.
  * <p>
  * @version v0.1.0
  * @author Noah Owens
  */
-public class CharFeature {
-    @Getter @Setter private int level;
-    @Getter @Setter private String title;
+public class CharClass {
+    @Getter @Setter String name;
+    @Getter @Setter int hitDie;
+    @Getter @Setter ArrayList<CharFeature> features;
 
     /**
-     * CharFeature constructor makes an object that associates the title of the feature with the level that it becomes available to a character.
+     * CharClass constructor builds an object with a name, hit die, and list of features.
      * <p>
-     * @param level the level benchmark which must be met for this feature to be available
-     * @param title the name of the feature
+     * @param name the one word title of the character class
+     * @param hitDie an integer (either 6, 8, 10, or 12) representing the size of the die a character of this class rolls for hitpoints and short rest healing
+     * @param features a list of the features which characters of this class gain.
      */
-    public CharFeature(int level, String title) {
-        this.level = level;
-        this.title = title;
+    public CharClass(String name, int hitDie, ArrayList<CharFeature> features) {
+        this.name = name;
+        this.hitDie = hitDie;
+        this.features = features;
     }
 }

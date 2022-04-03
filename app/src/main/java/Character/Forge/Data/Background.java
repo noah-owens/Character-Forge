@@ -21,16 +21,32 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-package Character.Forge;
+package Character.Forge.Data;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import java.util.ArrayList;
 
 /**
- * Spell class creates an object akin to a physical spell card.
- * Down the line it will potentially be the basis of a GUI view upon
- * hovering/clicking on a spell.
+ * Background class creates an object which represents the background field in a character sheet,
+ * containing a name, features, and additional equipment
  * <p>
- * @version v0.2.0
+ * @version v0.1.0
  * @author Noah Owens
  */
-public class Spell {
-    
+public class Background {
+    @Getter @Setter String name;
+    @Getter @Setter ArrayList<CharFeature> features;
+
+    /**
+     * Background constructor creates a background object with a name, and features
+     * <p>
+     * @param name the name of the background, provides a hint for possible roleplaying starts
+     * @param features the mechanical benefits of a given background
+     */
+    public Background(String name, ArrayList<CharFeature> features) {
+        this.name = name;
+        this.features = features;
+    }
 }

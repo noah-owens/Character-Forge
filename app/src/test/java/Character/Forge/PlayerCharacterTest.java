@@ -23,13 +23,13 @@
  */
 package Character.Forge;
 
-import org.checkerframework.checker.units.qual.A;
+import Character.Forge.Behavior.PlayerCharacter;
+import Character.Forge.Data.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  * Test file for CharClass.java
