@@ -8,7 +8,8 @@
 Character Forge is an app for creating D&amp;D characters and NPCs based on a completely hands-off approach. Certain features may be specified, but it's never a requirement! Character Forge has been designed with accessibility and ease of use in mind, so that anyone on any system can install, run, and have a random character or NPC statblock ready to go at a moment's notice.
 
 ### Built With
-- [Java](https://www.java.com/en/) (JDK 17)
+- [Java](https://www.java.com/en/) (JDK 16.0.2)
+- [Gradle 7.2](https://gradle.org/install/)  
 - [IntelliJ IDEA 2020.3.4](https://www.jetbrains.com/idea/download/other.html) (This version is bundled with the lombok plugin)
 - [Gluon Scene Builder](https://gluonhq.com/products/scene-builder/)
 
