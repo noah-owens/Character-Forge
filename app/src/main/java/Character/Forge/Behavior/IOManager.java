@@ -24,13 +24,8 @@
 package Character.Forge.Behavior;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
-import java.util.List;
-
-import Character.Forge.Data.Background;
-import Character.Forge.Data.Race;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
