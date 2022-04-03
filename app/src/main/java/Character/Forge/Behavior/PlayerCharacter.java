@@ -50,6 +50,8 @@ public class PlayerCharacter {
     public ArrayList<String> spells;
     public ArrayList<CharFeature> features;
 
+    private RandomHelper r = new RandomHelper();
+
     /**
      * PlayerCharacter constructor instantiates an ArrayList named "equipment" for storing adventuring paraphernalia and likewise one for "spells"
      * <p>
@@ -85,18 +87,6 @@ public class PlayerCharacter {
     }
 
     /**
-     * Simulate the roll of a die with n sides. Convenience method to not make Random objects everywhere.
-     * <p>
-     * @param n the number of sides
-     * @return an integer value between 1 & n
-     * @throws IllegalArgumentException if passed a negative n
-     */
-    public int rollDie(int n) throws IllegalArgumentException {
-            Random r = new Random();
-            return r.nextInt(n) + 1;
-    }
-
-    /**
      * Returns a randomized Hp total (without considering constitution bonus) considering character level and class hit die
      * <p>
      * @return an Hp total ready to be adjusted with constitution
@@ -106,7 +96,7 @@ public class PlayerCharacter {
 
         if(level > 1) {
             for(int i = 1; i < level; i++) {
-                int addedHitPoints = rollDie(charClass.getHitDie());
+                int addedHitPoints = r.rollDie(charClass.getHitDie());
                 hp += addedHitPoints;
             }
         }
@@ -191,7 +181,7 @@ public class PlayerCharacter {
         int valueOfStatAtIndex;
 
         while (pointBuyTracker < pointBuyLimit) {
-            intIndex = rollDie(6) - 1;
+            intIndex = r.rollDie(6) - 1;
             statAtIndex = initializedStats.get(intIndex);
             valueOfStatAtIndex = statAtIndex.getValue();
 
