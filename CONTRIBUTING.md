@@ -20,9 +20,8 @@ post.
 
 ### Solve an Issue
 
-You can also trawl through [existing issues](https://github.com/noah-owens/Character-Forge/issues) to find one that interests you. I will likely not be assigning issues to anyone (except maybe myself sometimes, 
-since that seems like a technique one would use with a slightly bigger team of dedicated developers. If you would like to solve an issue, you're welcome to open a Pull Request
-with a fix!
+You can also trawl through [existing issues](https://github.com/noah-owens/Character-Forge/issues) to find one that interests you. If you would like to solve an issue, you're welcome to open a Pull Request
+with a fix! When making commits, consider making use of [Gitmoji](https://gitmoji.dev) guidelines.
 
 ## Pull Requests
 
