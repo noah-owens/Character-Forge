@@ -23,5 +23,26 @@
         "title": "The one where you re-roll 1s"
       }
     ]
+  },
+  {
+    "name": "Orc",
+    "statChanges": [
+      {
+        "id": "STR",
+        "value": 2,
+        "bonus": 0
+      },
+      {
+        "id": "CON",
+        "value": 1,
+        "bonus": 0
+      }
+    ],
+    "features": [
+      {
+        "level": 0,
+        "title": "Tall"
+      }
+    ]
   }
 ]

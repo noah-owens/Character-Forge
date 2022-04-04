@@ -24,7 +24,6 @@
 package Character.Forge.Behavior;
 
 import java.io.*;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
@@ -46,7 +45,7 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 public class IOManager<T> {
-    Gson gson = new GsonBuilder()
+    private final Gson gson = new GsonBuilder()
                     .setFieldNamingPolicy(FieldNamingPolicy.IDENTITY)
                     .serializeNulls()
                     .setPrettyPrinting()
@@ -55,15 +54,20 @@ public class IOManager<T> {
                     //  variable formatting however.
                     // .setLenient()
                     .create();
-    BufferedWriter writer;
-    BufferedReader reader;
-
+    private final TypeToken<ArrayList<T>> listType;
+    private BufferedWriter writer;
+    private BufferedReader reader;
 
     /**
-     * Non-parameterized constructor allows for accessing methods outside IOManager class
+     * Constructor binds T to a type at runtime to circumvent type erasure. Use like:
+     * Executor<[myClass]> ioManager = new IOManager<[myClass]>(new TypeToken<ArrayList<[myClass]>>() {})
+     * Read why this works at https://stackoverflow.com/a/14506181
+     * <p>
+     * @param listType new TypeToken
      */
-    public IOManager() {}
-
+    public IOManager(TypeToken<ArrayList<T>> listType) {
+        this.listType = listType;
+    }
 
     /**
      * Writes a collection of objects into json at specified location. Overwrites file at destination if
@@ -83,8 +87,6 @@ public class IOManager<T> {
             boolean fileDeleted = file.delete();
             File blankFile = new File(filePath);
 
-            log.info("File at:" + filePath + " deleted = " + fileDeleted);
-
             writer = new BufferedWriter(new FileWriter(blankFile, false));
             writer.write("");
             writer.write(jsonObjectList);
@@ -95,14 +97,12 @@ public class IOManager<T> {
         }
     }
 
-    // Overloaded method appendFile() takes lists of several different types to do the same operation
-
     /**
      * Deserialize ArrayList from file, use add method to append list, then reserialize.
      * <p>
      * @param filePath string location of file, typically src/main/resources/serialized-objects/[fileName].json
      */
-    private void appendFile(ArrayList<T> objList, String filePath) {
+    public void appendFile(ArrayList<T> objList, String filePath) {
         File file = new File(filePath);
 
         if (fileIsEmpty(file)){
@@ -129,8 +129,7 @@ public class IOManager<T> {
                 accumulatorString.append(line);
             }
 
-            Type typeToken = new TypeToken<ArrayList<T>>() {}.getType();
-            listFromJson = gson.fromJson(String.valueOf(accumulatorString), typeToken);
+            listFromJson = gson.fromJson(String.valueOf(accumulatorString), listType.getType());
         } catch (IOException e) {
             logException(e);
         } finally {
