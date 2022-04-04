@@ -54,10 +54,9 @@ public class IOManager<T> {
                     //  variable formatting however.
                     // .setLenient()
                     .create();
-    private TypeToken<ArrayList<T>> listType;
+    private final TypeToken<ArrayList<T>> listType;
     private BufferedWriter writer;
     private BufferedReader reader;
-
 
     /**
      * Constructor binds T to a type at runtime to circumvent type erasure. Use like:
@@ -69,7 +68,6 @@ public class IOManager<T> {
     public IOManager(TypeToken<ArrayList<T>> listType) {
         this.listType = listType;
     }
-
 
     /**
      * Writes a collection of objects into json at specified location. Overwrites file at destination if
@@ -99,14 +97,12 @@ public class IOManager<T> {
         }
     }
 
-    // Overloaded method appendFile() takes lists of several different types to do the same operation
-
     /**
      * Deserialize ArrayList from file, use add method to append list, then reserialize.
      * <p>
      * @param filePath string location of file, typically src/main/resources/serialized-objects/[fileName].json
      */
-    private void appendFile(ArrayList<T> objList, String filePath) {
+    public void appendFile(ArrayList<T> objList, String filePath) {
         File file = new File(filePath);
 
         if (fileIsEmpty(file)){
