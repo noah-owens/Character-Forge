@@ -36,14 +36,18 @@ import java.util.ArrayList;
  */
 public class DataLoader {
     private static DataLoader dataLoaderInstance = null;
-
     private final IOManager<Background> backgroundIOManager= new IOManager<>(new TypeToken<ArrayList<Background>>() {});
     private final IOManager<CharClass> charClassIOManager = new IOManager<>(new TypeToken<ArrayList<CharClass>>() {});
     private final IOManager<CharFeature> charFeatureIOManager = new IOManager<>(new TypeToken<ArrayList<CharFeature>>() {});
     private final IOManager<Equipment> equipmentIOManager = new IOManager<>(new TypeToken<ArrayList<Equipment>>() {});
     private final IOManager<Race> raceIOManager = new IOManager<>(new TypeToken<ArrayList<Race>>() {});
     private final IOManager<Spell> spellIOManager = new IOManager<>(new TypeToken<ArrayList<Spell>>() {});
-    private final IOManager<Stat> statIOManager = new IOManager<>(new TypeToken<ArrayList<Stat>>() {});
+    private ArrayList<Background> backgrounds;
+    private ArrayList<CharClass> charClasses;
+    private ArrayList<CharFeature> charFeatures;
+    private ArrayList<Equipment> equipment;
+    private ArrayList<Race> races;
+    private ArrayList<Spell> spells;
 
     private DataLoader() {}
 
@@ -54,10 +58,14 @@ public class DataLoader {
         return dataLoaderInstance;
     }
 
-    /**
-     * This method is for editing
-     */
-    public void serializePHB() {
+//    /**
+//     * serialize() is for constructing the json files that make the basis of the project's data.
+//     * <p>
+//     * To make edits/additions to the serialized objects stored in the program, uncomment it, create your
+//     * new objects, and append/overwrite existing files using the relevant IOManager.
+//     */
+//    public void serialize() {
+//
+//    }
 
-    }
 }
