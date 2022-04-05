@@ -45,7 +45,8 @@ If you like what's going on here, feel free to support me on [Ko-Fi](https://ko-
 
 - [Jeroen van Erp](https://github.com/hierynomus) - Whose amazing [license plugin](https://github.com/noah-owens/Character-Forge) for gradle makes everything easier
 - [Othneil Drew](https://github.com/othneildrew) - For the awesome [README template](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md) I pulled heavy inspiration from
-- [Gitmoji](https://gitmoji.dev/) - For making a standardized commit labeling system that I just think is pretty.
+- [Gitmoji](https://gitmoji.dev/) - For making a standardized commit labeling system
+- [InversifyJS](https://github.com/inversify/inversify-basic-example) - For the [pull request template](https://github.com/inversify/inversify-basic-example/blob/master/PULL_REQUEST_TEMPLATE.md) I edited to suit this project
 
 ## License
 
