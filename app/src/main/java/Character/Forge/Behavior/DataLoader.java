@@ -25,7 +25,7 @@ package Character.Forge.Behavior;
 
 import Character.Forge.Data.*;
 import com.google.gson.reflect.TypeToken;
-
+import lombok.Getter;
 import java.util.ArrayList;
 
 /**
@@ -42,12 +42,12 @@ public class DataLoader {
     private final IOManager<Equipment> equipmentIOManager = new IOManager<>(new TypeToken<ArrayList<Equipment>>() {});
     private final IOManager<Race> raceIOManager = new IOManager<>(new TypeToken<ArrayList<Race>>() {});
     private final IOManager<Spell> spellIOManager = new IOManager<>(new TypeToken<ArrayList<Spell>>() {});
-    private ArrayList<Background> backgrounds;
-    private ArrayList<CharClass> charClasses;
-    private ArrayList<CharFeature> charFeatures;
-    private ArrayList<Equipment> equipment;
-    private ArrayList<Race> races;
-    private ArrayList<Spell> spells;
+    @Getter private ArrayList<Background> backgrounds;
+    @Getter private ArrayList<CharClass> charClasses;
+    @Getter private ArrayList<CharFeature> charFeatures;
+    @Getter private ArrayList<Equipment> equipment;
+    @Getter private ArrayList<Race> races;
+    @Getter private ArrayList<Spell> spells;
 
     private DataLoader() {}
 
@@ -68,4 +68,18 @@ public class DataLoader {
 //
 //    }
 
+    /**
+     * loadFromJson() is to be called alongside App.launch() as one of the first behaviors in the project.
+     * <p>
+     * It will convert the json stored in resources/serialized-objects into objects that are usable and traversable
+     * by the program.
+     */
+    public void loadFromJson() {
+        backgrounds = backgroundIOManager.jsonRead("src/main/resources/serialized-objects/background.json");
+        charClasses = charClassIOManager.jsonRead("src/main/resources/serialized-objects/char-classes.json");
+        charFeatures = charFeatureIOManager.jsonRead("src/main/resources/serialized-objects/char-feature.json");
+        equipment = equipmentIOManager.jsonRead("src/main/resources/serialized-objects/equipment.json");
+        races = raceIOManager.jsonRead("src/main/resources/serialized-objects/race.json");
+        spells = spellIOManager.jsonRead("src/main/resources/serialized-objects/spell.json");
+    }
 }
