@@ -16,11 +16,13 @@
     "features": [
       {
         "level": 0,
-        "title": "Short"
+        "title": "Short",
+        "subclass": null
       },
       {
         "level": 0,
-        "title": "The one where you re-roll 1s"
+        "title": "The one where you re-roll 1s",
+        "subclass": null
       }
     ]
   },
@@ -41,7 +43,8 @@
     "features": [
       {
         "level": 0,
-        "title": "Tall"
+        "title": "Tall",
+        "subclass": null
       }
     ]
   }
