@@ -24,7 +24,6 @@
 package Character.Forge.Data;
 
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * Spell class creates an object akin to a physical spell card.
