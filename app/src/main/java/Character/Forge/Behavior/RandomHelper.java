@@ -44,7 +44,7 @@ public class RandomHelper {
      * Simulate the roll of a die with n sides.
      * <p>
      * @param n the number of sides
-     * @return an integer value between [1 & n] inclusive both sides
+     * @return an integer value between [1, n] inclusive both sides
      * @throws IllegalArgumentException if passed a negative n
      */
     public int rollDie(int n) throws IllegalArgumentException {
@@ -55,8 +55,9 @@ public class RandomHelper {
      * Create random number between [0,n) inclusive of zero only
      * @param n upper bound (non-inclusive)
      * @return a number between [0,n)
+     * @throws IllegalArgumentException if passed a negative n
      */
-    public int randNum(int n) {
+    public int randNum(int n) throws IllegalArgumentException {
         return r.nextInt(n);
     }
 }

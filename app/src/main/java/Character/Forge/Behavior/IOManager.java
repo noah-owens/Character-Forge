@@ -36,8 +36,8 @@ import lombok.extern.log4j.Log4j2;
  * from json files stored at src/main/resources/serialized-objects/[file].json
  * <p>
  * Uses generic typing to serialize and deserialize different data-class types, meaning
- * a new IOManager<[object type]> will be required for each type of object being serialized. A small
- * price to pay for not needing to write 21 separate read, write, and append methods.
+ * a new IOManager will be required for each type of object being serialized. A small
+ * price to pay for not needing to write 21 separate read, write, and append methods though.
  * <p>
  * @version 0.2.1
  * @author Noah Owens
@@ -59,8 +59,7 @@ public class IOManager<T> {
     private BufferedReader reader;
 
     /**
-     * Constructor binds T to a type at runtime to circumvent type erasure. Use like:
-     * Executor<[myClass]> ioManager = new IOManager<[myClass]>(new TypeToken<ArrayList<[myClass]>>() {})
+     * Constructor binds T to a type at runtime to circumvent type erasure.
      * Read why this works at https://stackoverflow.com/a/14506181
      * <p>
      * @param listType new TypeToken
@@ -100,6 +99,7 @@ public class IOManager<T> {
     /**
      * Deserialize ArrayList from file, use add method to append list, then reserialize.
      * <p>
+     * @param objList ArrayList of type T with any number of T objects in it
      * @param filePath string location of file, typically src/main/resources/serialized-objects/[fileName].json
      */
     public void appendFile(ArrayList<T> objList, String filePath) {
@@ -114,6 +114,11 @@ public class IOManager<T> {
         }
     }
 
+    /**
+     * Deserialize ArrayList from json
+     * @param filePath String location of the file, typically src/main/resources/serialized-objects/[fileName].json
+     * @return ArrayList of type T read from file
+     */
     public ArrayList<T> jsonRead(String filePath) {
         File file = new File(filePath);
         ArrayList<T> listFromJson = new ArrayList<>();

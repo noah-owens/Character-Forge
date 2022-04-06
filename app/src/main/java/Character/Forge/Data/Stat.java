@@ -28,7 +28,7 @@ import lombok.Setter;
 
 /**
  * Stat class creates a specific [name, value] pair object to represent the 6 main stats
- * plus Hp of a 5e D&D character
+ * plus Hp of a 5e DnD character
  * <p>
  * @version v0.1.0
  * @author Noah Owens
@@ -42,7 +42,7 @@ public class Stat {
      * Stat constructor creates an object with an id that can be easily parsed for it's raw value and it's applied bonus for skill checks
      * <p>
      * @param id the 2-3 character representation of the stat (Hp, STR, WIS, CHA, etc.)
-     * @param value the raw number (between 3 & 20) value of the stat
+     * @param value the raw number (between 3 and 20) value of the stat
      * @param bonus the number derived from the raw value which is applied to skill checks
      */
     public Stat(String id, int value, int bonus) {
