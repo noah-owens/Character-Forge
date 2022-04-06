@@ -23,6 +23,7 @@
  */
 package Character.Forge.Data;
 
+import Character.Forge.Behavior.RandomHelper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,9 +37,11 @@ import java.util.ArrayList;
  * @author Noah Owens
  */
 public class CharClass {
-    @Getter @Setter String name;
-    @Getter @Setter int hitDie;
+    @Getter String name;
+    @Getter int hitDie;
     @Getter @Setter ArrayList<CharFeature> features;
+    @Getter @Setter ArrayList<Equipment> equipment;
+
 
     /**
      * CharClass constructor builds an object with a name, hit die, and list of features.
@@ -46,10 +49,69 @@ public class CharClass {
      * @param name the one word title of the character class
      * @param hitDie an integer (either 6, 8, 10, or 12) representing the size of the die a character of this class rolls for hitpoints and short rest healing
      * @param features a list of the features which characters of this class gain.
+     * @param equipment a list of equipment to be added to character's overall equipment list
      */
-    public CharClass(String name, int hitDie, ArrayList<CharFeature> features) {
+    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, ArrayList<Equipment> equipment) {
         this.name = name;
         this.hitDie = hitDie;
         this.features = features;
+        this.equipment = equipment;
+    }
+
+    /**
+     * Assign equipment using PHB equipment quick select based on CharClass.name
+     */
+    public void quickSelectEquipment() {
+        switch (name) {
+            case "Artificer":
+                break;
+            case "Barbarian":
+                break;
+            case "Bard":
+                break;
+            case "Cleric":
+                break;
+            case "Druid":
+                break;
+            case "Fighter":
+                break;
+            case "Monk":
+                break;
+            case "Paladin":
+                break;
+            case "Ranger":
+                break;
+            case "Rogue":
+                break;
+            case "Sorcerer":
+                break;
+            case "Warlock":
+                break;
+            case "Wizard":
+                break;
+            default:
+                equipment.add(new Equipment("Rubber Duck"));
+                break;
+        }
+    }
+
+    /**
+     * Makes a choice between two Equipment objects
+     * @param e1 choice 1
+     * @param e2 choice 2
+     * @return chosen equipment
+     */
+    private Equipment pickOneEquip(Equipment e1, Equipment e2) {
+        Equipment pickedEquip;
+        RandomHelper r = new RandomHelper();
+        int randNum = r.rollDie(2);
+
+        if (randNum == 1) {
+            pickedEquip = e1;
+        } else {
+            pickedEquip = e2;
+        }
+
+        return pickedEquip;
     }
 }

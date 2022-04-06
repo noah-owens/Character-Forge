@@ -31,5 +31,9 @@ package Character.Forge.Data;
  * @author Noah Owens
  */
 public class Equipment {
+    String name;
 
+    public Equipment(String name) {
+        this.name = name;
+    }
 }
