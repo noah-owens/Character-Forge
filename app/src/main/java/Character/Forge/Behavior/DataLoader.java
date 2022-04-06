@@ -51,6 +51,11 @@ public class DataLoader {
 
     private DataLoader() {}
 
+    /**
+     * Access singleton DataLoader object
+     * <p>
+     * @return DataLoader
+     */
     public static DataLoader getDataLoaderInstance() {
         if (dataLoaderInstance == null) {
             dataLoaderInstance = new DataLoader();
