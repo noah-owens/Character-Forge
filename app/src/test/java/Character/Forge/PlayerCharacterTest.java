@@ -61,7 +61,7 @@ public class PlayerCharacterTest {
             humanRaceBonuses.add(new Stat("WIS", 1, 0));
             humanRaceBonuses.add(new Stat("CHA", 1, 0));
         human = new Race("Human", humanRaceBonuses, new ArrayList<CharFeature>());
-        salesperson = new Background("Salesperson", new ArrayList<CharFeature>());
+        salesperson = new Background("Salesperson", new ArrayList<CharFeature>(), new ArrayList<>());
     }
 
     @Test
