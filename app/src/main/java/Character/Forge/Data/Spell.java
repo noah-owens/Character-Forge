@@ -34,8 +34,8 @@ import lombok.Getter;
  * @author Noah Owens
  */
 public class Spell {
-    @Getter private int level;
-    @Getter private String name;
+    @Getter private final int level;
+    @Getter private final String name;
 
     public Spell(int level, String name) {
         this.level = level;
