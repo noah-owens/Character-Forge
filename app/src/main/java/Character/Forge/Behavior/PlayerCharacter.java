@@ -53,7 +53,8 @@ public class PlayerCharacter {
     private final RandomHelper r = new RandomHelper();
 
     /**
-     * PlayerCharacter constructor instantiates an ArrayList named "equipment" for storing adventuring paraphernalia and likewise one for "spells"
+     * PlayerCharacter constructor instantiates an ArrayList named "equipment"
+     * for storing adventuring paraphernalia and likewise one for "spells"
      * <p>
      * @param name the character's given name
      * @param level an integer between 1 and 20 representative of the character's power
@@ -62,7 +63,7 @@ public class PlayerCharacter {
      * @param hp an integer representing a character's health points.
      * @param stats a list of six numeric attributes (STR, DEX, CON, INT, WIS, CHA) which represent a character's skillfulness in a certain area
      * @param background the character's sob story, which may include helpful talents or connections
-     * @param alignment a certain... moral guiding light represented in two character pairs (LG, NE, CG, NN)
+     * @param alignment a certain... moral guiding light represented in two-letter pairs (LG, NE, CG, NN)
      */
     public PlayerCharacter(String name, int level, CharClass charClass, Race race, int hp, ArrayList<Stat> stats, Background background, String alignment) {
         this.name = name;
