@@ -30,7 +30,6 @@ import java.util.ArrayList;
 
 /**
  * CharClass class creates an object which represents one of the main character species in the game.
- * At some future point it will become the parent of a "Subrace" inherited class.
  * <p>
  * @version v0.1.0
  * @author Noah Owens
@@ -45,6 +44,7 @@ public class Race {
      * <p>
      * @param name what the species is called
      * @param statChanges the stats which are added to as a feature of being this race, and the quantity by which they are increased
+     *                    (an ArrayList length 6 with stats in Character Sheet order. For unadjusted stats value = 0)
      * @param features a list of the features which characters of this race gain
      */
     public Race(String name, ArrayList<Stat> statChanges, ArrayList<CharFeature> features) {
