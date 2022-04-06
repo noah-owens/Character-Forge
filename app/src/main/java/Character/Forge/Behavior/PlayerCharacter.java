@@ -56,7 +56,7 @@ public class PlayerCharacter {
      * PlayerCharacter constructor instantiates an ArrayList named "equipment" for storing adventuring paraphernalia and likewise one for "spells"
      * <p>
      * @param name the character's given name
-     * @param level an integer between 1 & 20 representative of the character's power
+     * @param level an integer between 1 and 20 representative of the character's power
      * @param charClass the character's profession, expertise, or proclivity (warlock, fighter, cleric, etc.)
      * @param race the character's species (human, goblin, dwarf, etc.)
      * @param hp an integer representing a character's health points.
