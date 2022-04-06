@@ -40,7 +40,7 @@ public class CharClass {
     @Getter String name;
     @Getter int hitDie;
     @Getter @Setter ArrayList<CharFeature> features;
-    @Getter @Setter ArrayList<Equipment> equipment;
+    @Getter ArrayList<String> equipment;
 
 
     /**
@@ -51,7 +51,7 @@ public class CharClass {
      * @param features a list of the features which characters of this class gain.
      * @param equipment a list of equipment to be added to character's overall equipment list
      */
-    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, ArrayList<Equipment> equipment) {
+    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, ArrayList<String> equipment) {
         this.name = name;
         this.hitDie = hitDie;
         this.features = features;
@@ -90,19 +90,20 @@ public class CharClass {
             case "Wizard":
                 break;
             default:
-                equipment.add(new Equipment("Rubber Duck"));
+                equipment.add("Rubber Duck");
                 break;
         }
     }
 
     /**
-     * Makes a choice between two Equipment objects
+     * Makes a choice between two equipment String objects
      * @param e1 choice 1
      * @param e2 choice 2
      * @return chosen equipment
      */
-    private Equipment pickOneEquip(Equipment e1, Equipment e2) {
-        Equipment pickedEquip;
+    private String pickOneEquip(String e1, String e2) {
+        String pickedEquip;
+
         RandomHelper r = new RandomHelper();
         int randNum = r.rollDie(2);
 

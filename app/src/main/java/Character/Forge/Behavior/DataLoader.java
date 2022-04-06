@@ -39,13 +39,11 @@ public class DataLoader {
     private final IOManager<Background> backgroundIOManager= new IOManager<>(new TypeToken<ArrayList<Background>>() {});
     private final IOManager<CharClass> charClassIOManager = new IOManager<>(new TypeToken<ArrayList<CharClass>>() {});
     private final IOManager<CharFeature> charFeatureIOManager = new IOManager<>(new TypeToken<ArrayList<CharFeature>>() {});
-    private final IOManager<Equipment> equipmentIOManager = new IOManager<>(new TypeToken<ArrayList<Equipment>>() {});
     private final IOManager<Race> raceIOManager = new IOManager<>(new TypeToken<ArrayList<Race>>() {});
     private final IOManager<Spell> spellIOManager = new IOManager<>(new TypeToken<ArrayList<Spell>>() {});
     @Getter private ArrayList<Background> backgrounds;
     @Getter private ArrayList<CharClass> charClasses;
     @Getter private ArrayList<CharFeature> charFeatures;
-    @Getter private ArrayList<Equipment> equipment;
     @Getter private ArrayList<Race> races;
     @Getter private ArrayList<Spell> spells;
 
@@ -83,7 +81,6 @@ public class DataLoader {
         backgrounds = backgroundIOManager.jsonRead("src/main/resources/serialized-objects/background.json");
         charClasses = charClassIOManager.jsonRead("src/main/resources/serialized-objects/char-classes.json");
         charFeatures = charFeatureIOManager.jsonRead("src/main/resources/serialized-objects/char-feature.json");
-        equipment = equipmentIOManager.jsonRead("src/main/resources/serialized-objects/equipment.json");
         races = raceIOManager.jsonRead("src/main/resources/serialized-objects/race.json");
         spells = spellIOManager.jsonRead("src/main/resources/serialized-objects/spell.json");
     }
