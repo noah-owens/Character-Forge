@@ -41,6 +41,7 @@ public class CharClass {
     @Getter int hitDie;
     @Getter @Setter ArrayList<CharFeature> features;
     @Getter ArrayList<String> equipment;
+    @Getter @Setter int highestSpellSlotLvl;
 
 
     /**
@@ -50,12 +51,14 @@ public class CharClass {
      * @param hitDie an integer (either 6, 8, 10, or 12) representing the size of the die a character of this class rolls for hitpoints and short rest healing
      * @param features a list of the features which characters of this class gain.
      * @param equipment a list of equipment to be added to character's overall equipment list
+     *
      */
-    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, ArrayList<String> equipment) {
+    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, ArrayList<String> equipment, int highestSpellSlotLvl) {
         this.name = name;
         this.hitDie = hitDie;
         this.features = features;
         this.equipment = equipment;
+        this.highestSpellSlotLvl = highestSpellSlotLvl;
     }
 
     /**

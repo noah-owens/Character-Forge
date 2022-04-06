@@ -23,6 +23,9 @@
  */
 package Character.Forge.Data;
 
+import lombok.Getter;
+import lombok.Setter;
+
 /**
  * Spell class creates an object akin to a physical spell card.
  * Down the line it will potentially be the basis of a GUI view upon
@@ -32,5 +35,11 @@ package Character.Forge.Data;
  * @author Noah Owens
  */
 public class Spell {
-    
+    @Getter private int level;
+    @Getter private String name;
+
+    public Spell(int level, String name) {
+        this.level = level;
+        this.name = name;
+    }
 }

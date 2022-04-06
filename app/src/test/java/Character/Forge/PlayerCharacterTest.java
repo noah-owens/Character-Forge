@@ -49,8 +49,8 @@ public class PlayerCharacterTest {
 
     @BeforeEach
     public void setUp() {
-        bard = new CharClass("Bard", 8, new ArrayList<>(), new ArrayList<>());
-        barbarian = new CharClass("Barbarian", 12, new ArrayList<>(), new ArrayList<>());
+        bard = new CharClass("Bard", 8, new ArrayList<>(), new ArrayList<>(), 0);
+        barbarian = new CharClass("Barbarian", 12, new ArrayList<>(), new ArrayList<>(), 0);
         lyle = new PlayerCharacter("Lyle", 1, bard, null, 0, new ArrayList<>(), null, "CG");
         bronan = new PlayerCharacter("Bronan", 15, barbarian, null, 0, new ArrayList<>(), null, "CG");
         humanRaceBonuses = new ArrayList<>();
