@@ -4,9 +4,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.3.0] - 2022-04-02
+## [0.4.0] - 2022-04-07
+### Added
+- Methods for determining random starting equipment
+### Changed
+- Structural elements of various data classes (Spells, Race, CharClass)
+### Removed
+- Equipment data class
+
+## [0.3.1] - 2022-04-02
 ### Added
 - jsonRead() added to deserialize from json files
+- DataLoader.java and RandomHelper.java
 ### Changed
 - IOManager<T> now takes a generic type
 - jsonWrite() and appendFile() work with generic types
@@ -25,6 +34,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - All instances of "HP" changed to "Hp"
 - CI migrated from Travis CI to Github Actions
+### Removed
+- .travis.yml workflow file
 
 ## [0.2.0] - 2022-03-27
 ### Added
