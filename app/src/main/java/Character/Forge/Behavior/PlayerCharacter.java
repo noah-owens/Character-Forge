@@ -28,7 +28,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * PlayerCharacter class creates an object representative of the completed character sheet.
@@ -46,9 +45,8 @@ public class PlayerCharacter {
     @Getter @Setter private Background background;
     @Getter @Setter private String alignment;
 
-    public ArrayList<String> equipment;
-    public ArrayList<String> spells;
-    public ArrayList<CharFeature> features;
+    private ArrayList<String> equipment;
+    private ArrayList<Spell> spells;
 
     private final RandomHelper r = new RandomHelper();
 
@@ -63,7 +61,7 @@ public class PlayerCharacter {
      * @param hp an integer representing a character's health points.
      * @param stats a list of six numeric attributes (STR, DEX, CON, INT, WIS, CHA) which represent a character's skillfulness in a certain area
      * @param background the character's sob story, which may include helpful talents or connections
-     * @param alignment a certain... moral guiding light represented in two-letter pairs (LG, NE, CG, NN)
+     * @param alignment a character's moral guiding light represented in two-letter pairs (LG, NE, CG, NN)
      */
     public PlayerCharacter(String name, int level, CharClass charClass, Race race, int hp, ArrayList<Stat> stats, Background background, String alignment) {
         this.name = name;
@@ -277,5 +275,13 @@ public class PlayerCharacter {
         }
 
         return pickedEquip;
+    }
+
+    public void addSpell(Spell s) {
+        spells.add(s);
+    }
+
+    public void addEquipment(String e) {
+        equipment.add(e);
     }
 }
