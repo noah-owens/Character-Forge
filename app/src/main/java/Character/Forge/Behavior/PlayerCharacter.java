@@ -220,4 +220,62 @@ public class PlayerCharacter {
 
         return originalStatsArrayList;
     }
+
+    /**
+     * Assign equipment using PHB equipment quick select based on CharClass.name
+     */
+    public void quickSelectEquipment() {
+        switch (charClass.getName()) {
+            case "Artificer":
+                break;
+            case "Barbarian":
+                break;
+            case "Bard":
+                break;
+            case "Cleric":
+                break;
+            case "Druid":
+                break;
+            case "Fighter":
+                break;
+            case "Monk":
+                break;
+            case "Paladin":
+                break;
+            case "Ranger":
+                break;
+            case "Rogue":
+                break;
+            case "Sorcerer":
+                break;
+            case "Warlock":
+                break;
+            case "Wizard":
+                break;
+            default:
+                equipment.add("Rubber Duck");
+                break;
+        }
+    }
+
+    /**
+     * Makes a choice between two equipment String objects
+     * @param e1 choice 1
+     * @param e2 choice 2
+     * @return chosen equipment
+     */
+    private String pickOneEquip(String e1, String e2) {
+        String pickedEquip;
+
+        RandomHelper r = new RandomHelper();
+        int randNum = r.rollDie(2);
+
+        if (randNum == 1) {
+            pickedEquip = e1;
+        } else {
+            pickedEquip = e2;
+        }
+
+        return pickedEquip;
+    }
 }
