@@ -23,6 +23,7 @@
  */
 package Character.Forge.Data;
 
+import Character.Forge.Behavior.RandomHelper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -36,9 +37,12 @@ import java.util.ArrayList;
  * @author Noah Owens
  */
 public class CharClass {
-    @Getter @Setter String name;
-    @Getter @Setter int hitDie;
+    @Getter String name;
+    @Getter int hitDie;
     @Getter @Setter ArrayList<CharFeature> features;
+    @Getter ArrayList<String> equipment;
+    @Getter @Setter int highestSpellSlotLvl;
+
 
     /**
      * CharClass constructor builds an object with a name, hit die, and list of features.
@@ -46,10 +50,14 @@ public class CharClass {
      * @param name the one word title of the character class
      * @param hitDie an integer (either 6, 8, 10, or 12) representing the size of the die a character of this class rolls for hitpoints and short rest healing
      * @param features a list of the features which characters of this class gain.
+     * @param equipment a list of equipment to be added to character's overall equipment list
+     *
      */
-    public CharClass(String name, int hitDie, ArrayList<CharFeature> features) {
+    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, ArrayList<String> equipment, int highestSpellSlotLvl) {
         this.name = name;
         this.hitDie = hitDie;
         this.features = features;
+        this.equipment = equipment;
+        this.highestSpellSlotLvl = highestSpellSlotLvl;
     }
 }

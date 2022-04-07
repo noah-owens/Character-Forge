@@ -62,8 +62,8 @@ public class IOManagerTest {
             statChanges.add(new Stat("DEX", 2, 0));
             statChanges.add(new Stat("CHA", 1, 0));
         ArrayList<CharFeature> features = new ArrayList<>();
-            features.add(new CharFeature(0, "Short"));
-            features.add(new CharFeature(0, "The one where you re-roll 1s"));
+            features.add(new CharFeature(0, "Short", null));
+            features.add(new CharFeature(0, "The one where you re-roll 1s", null));
 
         halfling = new Race("Lightfoot Halfling", statChanges, features);
 
@@ -152,7 +152,7 @@ public class IOManagerTest {
             orcStatChanges.add(new Stat("STR", 2, 0));
             orcStatChanges.add(new Stat("CON", 1, 0));
         ArrayList<CharFeature> orcFeatures = new ArrayList<>();
-            orcFeatures.add(new CharFeature(0, "Tall"));
+            orcFeatures.add(new CharFeature(0, "Tall", null));
 
         ArrayList<Race> newRaces = new ArrayList<>();
         newRaces.add(new Race("Orc", orcStatChanges, orcFeatures));

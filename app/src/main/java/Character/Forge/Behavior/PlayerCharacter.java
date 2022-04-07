@@ -28,7 +28,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.ArrayList;
-import java.util.Random;
 
 /**
  * PlayerCharacter class creates an object representative of the completed character sheet.
@@ -46,14 +45,14 @@ public class PlayerCharacter {
     @Getter @Setter private Background background;
     @Getter @Setter private String alignment;
 
-    public ArrayList<String> equipment;
-    public ArrayList<String> spells;
-    public ArrayList<CharFeature> features;
+    private ArrayList<String> equipment;
+    private ArrayList<Spell> spells;
 
     private final RandomHelper r = new RandomHelper();
 
     /**
-     * PlayerCharacter constructor instantiates an ArrayList named "equipment" for storing adventuring paraphernalia and likewise one for "spells"
+     * PlayerCharacter constructor instantiates an ArrayList named "equipment"
+     * for storing adventuring paraphernalia and likewise one for "spells"
      * <p>
      * @param name the character's given name
      * @param level an integer between 1 and 20 representative of the character's power
@@ -62,7 +61,7 @@ public class PlayerCharacter {
      * @param hp an integer representing a character's health points.
      * @param stats a list of six numeric attributes (STR, DEX, CON, INT, WIS, CHA) which represent a character's skillfulness in a certain area
      * @param background the character's sob story, which may include helpful talents or connections
-     * @param alignment a certain... moral guiding light represented in two character pairs (LG, NE, CG, NN)
+     * @param alignment a character's moral guiding light represented in two-letter pairs (LG, NE, CG, NN)
      */
     public PlayerCharacter(String name, int level, CharClass charClass, Race race, int hp, ArrayList<Stat> stats, Background background, String alignment) {
         this.name = name;
@@ -218,5 +217,71 @@ public class PlayerCharacter {
         }
 
         return originalStatsArrayList;
+    }
+
+    /**
+     * Assign equipment using PHB equipment quick select based on CharClass.name
+     */
+    public void quickSelectEquipment() {
+        switch (charClass.getName()) {
+            case "Artificer":
+                break;
+            case "Barbarian":
+                break;
+            case "Bard":
+                break;
+            case "Cleric":
+                break;
+            case "Druid":
+                break;
+            case "Fighter":
+                break;
+            case "Monk":
+                break;
+            case "Paladin":
+                break;
+            case "Ranger":
+                break;
+            case "Rogue":
+                break;
+            case "Sorcerer":
+                break;
+            case "Warlock":
+                break;
+            case "Wizard":
+                break;
+            default:
+                equipment.add("Rubber Duck");
+                break;
+        }
+    }
+
+    /**
+     * Makes a choice between two equipment String objects
+     * @param e1 choice 1
+     * @param e2 choice 2
+     * @return chosen equipment
+     */
+    private String pickOneEquip(String e1, String e2) {
+        String pickedEquip;
+
+        RandomHelper r = new RandomHelper();
+        int randNum = r.rollDie(2);
+
+        if (randNum == 1) {
+            pickedEquip = e1;
+        } else {
+            pickedEquip = e2;
+        }
+
+        return pickedEquip;
+    }
+
+    public void addSpell(Spell s) {
+        spells.add(s);
+    }
+
+    public void addEquipment(String e) {
+        equipment.add(e);
     }
 }

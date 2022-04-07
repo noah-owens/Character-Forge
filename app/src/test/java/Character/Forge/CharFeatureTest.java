@@ -39,18 +39,16 @@ public class CharFeatureTest {
 
     @BeforeEach
     public void setUp() {
-        channelDivinity = new CharFeature(2, "Channel Divinity");
+        channelDivinity = new CharFeature(2, "Channel Divinity", "all");
     }
 
     @Test
-    @DisplayName("Feature getters and setters working")
-    public void testGetterSetter() {
-        channelDivinity.setTitle("Sneak Attack");
-        channelDivinity.setLevel(0);
-
+    @DisplayName("Feature getters")
+    public void testGetters() {
         String t = channelDivinity.getTitle();
         int l = channelDivinity.getLevel();
+        String s = channelDivinity.getSubclass();
 
-        assert(t == "Sneak Attack" && l == 0);
+        assert(t.equals("Channel Divinity") && l == 2 && s.equals("all"));
     }
 }

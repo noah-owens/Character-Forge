@@ -24,7 +24,6 @@
 package Character.Forge.Data;
 
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * CharFeature class creates an [integer, string] pair object which represents the level at which a feature is unlocked, and the title
@@ -34,17 +33,20 @@ import lombok.Setter;
  * @author Noah Owens
  */
 public class CharFeature {
-    @Getter @Setter private int level;
-    @Getter @Setter private String title;
+    @Getter private int level;
+    @Getter private String title;
+    @Getter private String subclass;
 
     /**
      * CharFeature constructor makes an object that associates the title of the feature with the level that it becomes available to a character.
      * <p>
      * @param level the level benchmark which must be met for this feature to be available
      * @param title the name of the feature
+     * @param subclass the name of subclass it's available for (null for races, "all" for main class ability)
      */
-    public CharFeature(int level, String title) {
+    public CharFeature(int level, String title, String subclass) {
         this.level = level;
         this.title = title;
+        this.subclass = subclass;
     }
 }

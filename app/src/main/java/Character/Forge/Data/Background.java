@@ -24,7 +24,6 @@
 package Character.Forge.Data;
 
 import lombok.Getter;
-import lombok.Setter;
 
 import java.util.ArrayList;
 
@@ -36,17 +35,20 @@ import java.util.ArrayList;
  * @author Noah Owens
  */
 public class Background {
-    @Getter @Setter String name;
-    @Getter @Setter ArrayList<CharFeature> features;
+    @Getter String name;
+    @Getter ArrayList<CharFeature> features;
+    @Getter ArrayList<String> equipment;
 
     /**
      * Background constructor creates a background object with a name, and features
      * <p>
      * @param name the name of the background, provides a hint for possible roleplaying starts
      * @param features the mechanical benefits of a given background
+     * @param equipment
      */
-    public Background(String name, ArrayList<CharFeature> features) {
+    public Background(String name, ArrayList<CharFeature> features, ArrayList<String> equipment) {
         this.name = name;
         this.features = features;
+        this.equipment = equipment;
     }
 }
