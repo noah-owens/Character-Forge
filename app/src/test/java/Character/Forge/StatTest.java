@@ -46,4 +46,10 @@ public class StatTest {
         strength = new Stat("STR", 14, 0);
         wisdom = new Stat("WIS", 7, 0);
     }
+
+    @Test
+    @DisplayName("toString() outputs a consistent, correct format")
+    public void testToString() {
+        assert (strength.toString().equals("Stat{" + "id='" + strength.getId() + '\'' + ", value=" + strength.getValue() + ", bonus=" + strength.getBonus() + '}'));
+    }
 }
