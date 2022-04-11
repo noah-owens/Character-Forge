@@ -24,7 +24,6 @@
 package Character.Forge.Data;
 
 import lombok.Getter;
-import lombok.Setter;
 
 /**
  * Stat class creates a specific [name, value] pair object to represent the 6 main stats
@@ -35,11 +34,11 @@ import lombok.Setter;
  */
 public class Stat {
     @Getter final private String id;
-    @Getter @Setter private int value;
-    @Getter @Setter private int bonus;
+    @Getter private int value;
+    @Getter private int bonus;
 
     /**
-     * Stat constructor creates an object with an id that can be easily parsed for it's raw value and it's applied bonus for skill checks
+     * Stat constructor creates an obje ct with an id that can be easily parsed for it's raw value and it's applied bonus for skill checks
      * <p>
      * @param id the 2-3 character representation of the stat (Hp, STR, WIS, CHA, etc.)
      * @param value the raw number (between 3 and 20) value of the stat
@@ -52,11 +51,32 @@ public class Stat {
     }
 
     /**
+     * Value setter which automatically updates Stat.bonus to reflect the new Stat.value
+     * <p>
+     * @param v integer stat value
+     */
+    public void setValue(int v) {
+        value = v;
+
+        int b = deriveBonus();
+        setBonus(b);
+    }
+
+    /**
+     * Private value setter which is called from inside setValue()
+     * <p>
+     * @param b integer bonus value
+     */
+    private void setBonus(int b) {
+        bonus = b;
+    }
+
+    /**
      * Returns a bonus using the Player's Handbook calculation for ability modifiers
      * <p>
      * @return stat bonus derived from stat object's value field
      */
-    public int deriveBonus() {
+    private int deriveBonus() {
         double b = Math.floor((value - 10.0) / 2.0);
         return (int) b;
     }

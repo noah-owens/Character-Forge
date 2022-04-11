@@ -145,7 +145,6 @@ public class PlayerCharacterTest {
 
         // constitution set to a normal value/bonus pair manually for purposes of this test
         lyle.getStats().get(2).setValue(16);
-        lyle.getStats().get(2).setBonus(3);
 
         int adjustedHp = lyle.conAdjustHp(lyleHp);
 

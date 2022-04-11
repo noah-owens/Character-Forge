@@ -47,20 +47,9 @@ public class StatTest {
         wisdom = new Stat("WIS", 7, 0);
     }
 
-    /**
-     * Tests the deriveBonus() method in Stat.java
-     */
     @Test
-    @DisplayName("Test that derive bonus calculation is handled correctly.")
-    public void testDeriveBonus(){
-        strength.setBonus(strength.deriveBonus());
-        assert(strength.getBonus() == 2);
-
-        strength.setValue(18);
-        strength.setBonus(strength.deriveBonus());
-        assert(strength.getBonus() == 4);
-
-        wisdom.setBonus(wisdom.deriveBonus());
-        assert(wisdom.getBonus() == -2);
+    @DisplayName("toString() outputs a consistent, correct format")
+    public void testToString() {
+        assert (strength.toString().equals("Stat{" + "id='" + strength.getId() + '\'' + ", value=" + strength.getValue() + ", bonus=" + strength.getBonus() + '}'));
     }
 }

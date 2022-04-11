@@ -126,13 +126,7 @@ public class PlayerCharacter {
      * @return An arraylist of Stat objects with size 6 which includes [str,dex,con,int,wis,cha] with populated value and bonus properties
      */
     public ArrayList<Stat> createStatsAndBonuses() {
-        ArrayList<Stat> finalStats = applyRacialStatChanges(generateStats());
-
-        for (Stat i : finalStats) {
-            i.setBonus(i.deriveBonus());
-        }
-
-        return finalStats;
+        return applyRacialStatChanges(generateStats());
     }
 
     /**
