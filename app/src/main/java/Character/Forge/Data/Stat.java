@@ -38,7 +38,7 @@ public class Stat {
     @Getter private int bonus;
 
     /**
-     * Stat constructor creates an object with an id that can be easily parsed for it's raw value and it's applied bonus for skill checks
+     * Stat constructor creates an obje ct with an id that can be easily parsed for it's raw value and it's applied bonus for skill checks
      * <p>
      * @param id the 2-3 character representation of the stat (Hp, STR, WIS, CHA, etc.)
      * @param value the raw number (between 3 and 20) value of the stat

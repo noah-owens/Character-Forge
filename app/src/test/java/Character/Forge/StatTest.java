@@ -46,21 +46,4 @@ public class StatTest {
         strength = new Stat("STR", 14, 0);
         wisdom = new Stat("WIS", 7, 0);
     }
-
-    /**
-     * Tests the deriveBonus() method in Stat.java
-     */
-    @Test
-    @DisplayName("Test that derive bonus calculation is handled correctly.")
-    public void testDeriveBonus(){
-        strength.setBonus(strength.deriveBonus());
-        assert(strength.getBonus() == 2);
-
-        strength.setValue(18);
-        strength.setBonus(strength.deriveBonus());
-        assert(strength.getBonus() == 4);
-
-        wisdom.setBonus(wisdom.deriveBonus());
-        assert(wisdom.getBonus() == -2);
-    }
 }
