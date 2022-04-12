@@ -12,6 +12,7 @@ Character Forge is an app for creating D&amp;D characters and NPCs based on a co
 - [Gradle 7.2](https://gradle.org/install/)  
 - [IntelliJ IDEA 2020.3.4](https://www.jetbrains.com/idea/download/other.html) (This version is bundled with the lombok plugin)
 - [Gluon Scene Builder](https://gluonhq.com/products/scene-builder/)
+- Windows 10
 
 ## Getting Started
 
@@ -29,7 +30,7 @@ gradle run
 
 ## Contributing
 
-If you would like to help out, don't hesitate to create a pull request! Both code and non-code contributions are welcome. Alternatively, create an issue, and I'll be sure to give it a look! Before contributing, make sure to check out the [Contributing Guidelines](./CONTRIBUTING.md) and [Code of Conduct](./CODE_OF_CONDUCT.md).
+Character Forge is currently accepting non-code contributions. For more information on how you can help, check out the [Contributing Guidelines](./CONTRIBUTING.md). Alternatively, create an issue, and I'll be sure to give it a look! Before contributing, make sure to skim the [Code of Conduct](./CODE_OF_CONDUCT.md). (All it really asks is that you be kind though.)
 
 ## Contact 
 
