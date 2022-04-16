@@ -37,11 +37,10 @@ import java.util.ArrayList;
  * @author Noah Owens
  */
 public class CharClass {
-    @Getter String name;
-    @Getter int hitDie;
-    @Getter @Setter ArrayList<CharFeature> features;
-    @Getter ArrayList<String> equipment;
-    @Getter @Setter int highestSpellSlotLvl;
+    @Getter private String name;
+    @Getter private int hitDie;
+    @Getter @Setter private ArrayList<CharFeature> features;
+    @Getter @Setter private int highestSpellSlotLvl;
 
 
     /**
@@ -50,14 +49,12 @@ public class CharClass {
      * @param name the one word title of the character class
      * @param hitDie an integer (either 6, 8, 10, or 12) representing the size of the die a character of this class rolls for hitpoints and short rest healing
      * @param features a list of the features which characters of this class gain.
-     * @param equipment a list of equipment to be added to character's overall equipment list
-     *
+     * @param highestSpellSlotLvl integer representing the highest spell slot level available to the class
      */
-    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, ArrayList<String> equipment, int highestSpellSlotLvl) {
+    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, int highestSpellSlotLvl) {
         this.name = name;
         this.hitDie = hitDie;
         this.features = features;
-        this.equipment = equipment;
         this.highestSpellSlotLvl = highestSpellSlotLvl;
     }
 }
