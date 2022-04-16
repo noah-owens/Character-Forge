@@ -39,7 +39,9 @@ import java.util.ArrayList;
 public class CharClass {
     @Getter private String name;
     @Getter private int hitDie;
-    @Getter @Setter private ArrayList<CharFeature> features;
+    @Getter private ArrayList<CharFeature> features;
+    @Getter private String[] savingThrows;
+    @Getter private ArrayList<String> proficiencies;
     @Getter @Setter private int highestSpellSlotLvl;
 
 
@@ -51,10 +53,12 @@ public class CharClass {
      * @param features a list of the features which characters of this class gain.
      * @param highestSpellSlotLvl integer representing the highest spell slot level available to the class
      */
-    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, int highestSpellSlotLvl) {
+    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, String[] savingThrows, ArrayList<String> proficiencies, int highestSpellSlotLvl) {
         this.name = name;
         this.hitDie = hitDie;
         this.features = features;
+        this.savingThrows = savingThrows;
+        this.proficiencies = proficiencies;
         this.highestSpellSlotLvl = highestSpellSlotLvl;
     }
 }
