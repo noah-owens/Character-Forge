@@ -41,11 +41,16 @@ public class DataLoader {
     private final IOManager<CharFeature> charFeatureIOManager = new IOManager<>(new TypeToken<ArrayList<CharFeature>>() {});
     private final IOManager<Race> raceIOManager = new IOManager<>(new TypeToken<ArrayList<Race>>() {});
     private final IOManager<Spell> spellIOManager = new IOManager<>(new TypeToken<ArrayList<Spell>>() {});
+    private final IOManager<String> nameIOManager = new IOManager<>(new TypeToken<ArrayList<String>>() {});
+
     @Getter private ArrayList<Background> backgrounds;
     @Getter private ArrayList<CharClass> charClasses;
     @Getter private ArrayList<CharFeature> charFeatures;
     @Getter private ArrayList<Race> races;
     @Getter private ArrayList<Spell> spells;
+    @Getter private ArrayList<String> fNames;
+    @Getter private ArrayList<String> mNames;
+    @Getter private ArrayList<String> lNames;
 
     private DataLoader() {}
 
@@ -83,5 +88,8 @@ public class DataLoader {
         charFeatures = charFeatureIOManager.jsonRead("src/main/resources/serialized-objects/char-feature.json");
         races = raceIOManager.jsonRead("src/main/resources/serialized-objects/race.json");
         spells = spellIOManager.jsonRead("src/main/resources/serialized-objects/spell.json");
+        fNames = nameIOManager.jsonRead("src/main/resources/serialized-objects/first-name.json");
+        mNames = nameIOManager.jsonRead("src/main/resources/serialized-objects/middle-name.json");
+        lNames = nameIOManager.jsonRead("src/main/resources/serialized-objects/last-name.json");
     }
 }
