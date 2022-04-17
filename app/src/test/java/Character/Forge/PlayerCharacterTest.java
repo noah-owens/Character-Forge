@@ -47,12 +47,13 @@ public class PlayerCharacterTest {
     Race human;
     Background salesperson;
     ArrayList<Stat> humanRaceBonuses;
-    String[] barbSaves = {"STR", "CON"};
+    String[] sampleSaves = {"STR", "CON"};
+    String[] sampleProfs = {"Perception"};
 
     @BeforeEach
     public void setUp() {
-        bard = new CharClass("Bard", 8, new ArrayList<>(), barbSaves, new ArrayList<>(), 0);
-        barbarian = new CharClass("Barbarian", 12, new ArrayList<>(), barbSaves, new ArrayList<>(), 0);
+        bard = new CharClass("Bard", 8, new ArrayList<>(), sampleSaves, sampleProfs, 0);
+        barbarian = new CharClass("Barbarian", 12, new ArrayList<>(), sampleSaves, sampleProfs, 0);
         lyle = new PlayerCharacter("Lyle", 1, bard, null, 0, new ArrayList<>(), null, "CG");
         bronan = new PlayerCharacter("Bronan", 15, barbarian, null, 0, new ArrayList<>(), null, "CG");
         humanRaceBonuses = new ArrayList<>();

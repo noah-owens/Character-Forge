@@ -77,8 +77,9 @@ public class App extends Application {
 
         IOManager<CharClass> charClassIOManager = new IOManager<>(new TypeToken<ArrayList<CharClass>>() {});
         String[] barbSaves = {"STR", "CON"};
+        String[] barbProfs = {};
 
-        CharClass barbarian = new CharClass("Barbarian", 12, new ArrayList<>(), barbSaves, new ArrayList<>(), 0);
+        CharClass barbarian = new CharClass("Barbarian", 12, new ArrayList<>(), barbSaves, barbProfs, 0);
 
 
         //barbarian.getFeatures().add();

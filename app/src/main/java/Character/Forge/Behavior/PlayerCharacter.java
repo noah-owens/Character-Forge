@@ -47,6 +47,7 @@ public class PlayerCharacter {
 
     private ArrayList<String> equipment;
     private ArrayList<Spell> spells;
+    private ArrayList<String> proficiencies;
 
     private final RandomHelper r = new RandomHelper();
 
@@ -75,6 +76,7 @@ public class PlayerCharacter {
 
         equipment = new ArrayList<>();
         spells = new ArrayList<>();
+        proficiencies = new ArrayList<>();
     }
 
     /**
@@ -83,6 +85,7 @@ public class PlayerCharacter {
     public PlayerCharacter() {
         equipment = new ArrayList<>();
         spells = new ArrayList<>();
+        proficiencies = new ArrayList<>();
     }
 
     /**
@@ -278,4 +281,6 @@ public class PlayerCharacter {
     public void addEquipment(String e) {
         equipment.add(e);
     }
+
+    public void addProficiency(String p) { proficiencies.add(p); }
 }
