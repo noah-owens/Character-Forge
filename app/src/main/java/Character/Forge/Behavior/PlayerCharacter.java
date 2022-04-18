@@ -99,10 +99,12 @@ public class PlayerCharacter {
         if(level > 1) {
             for(int i = 1; i < level; i++) {
                 int addedHitPoints = r.rollDie(charClass.getHitDie());
+                if (addedHitPoints < charClass.getHitDie()/2) {
+                    addedHitPoints = charClass.getHitDie()/2;
+                }
                 hp += addedHitPoints;
             }
         }
-
         return hp;
     }
 

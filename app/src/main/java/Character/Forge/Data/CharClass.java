@@ -42,6 +42,7 @@ public class CharClass {
     @Getter private ArrayList<CharFeature> features;
     @Getter private final String[] savingThrows;
     @Getter private final String[] proficiencies;
+    @Getter private final int numProficiencies;
     @Getter @Setter private int highestSpellSlotLvl;
 
     /**
@@ -52,14 +53,16 @@ public class CharClass {
      * @param features a list of the features which characters of this class gain.
      * @param savingThrows immutable String[] len 2 which contains the all-caps 3 letter abbreviation of Stats which the character is proficient in
      * @param proficiencies immutable string[] which contains all the potential proficiencies granted by this class
+     * @param numProficiences the number of skill proficiencies that can be selected
      * @param highestSpellSlotLvl integer representing the highest spell slot level available to the class
      */
-    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, String[] savingThrows, String[] proficiencies, int highestSpellSlotLvl) {
+    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, String[] savingThrows, String[] proficiencies, int numProficiences, int highestSpellSlotLvl) {
         this.name = name;
         this.hitDie = hitDie;
         this.features = features;
         this.savingThrows = savingThrows;
         this.proficiencies = proficiencies;
+        this.numProficiencies = numProficiences;
         this.highestSpellSlotLvl = highestSpellSlotLvl;
     }
 }
