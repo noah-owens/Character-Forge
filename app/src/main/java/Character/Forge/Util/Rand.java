@@ -18,7 +18,7 @@ public class Rand {
      * <p>
      * @return Rand object
      */
-    public static Rand getRandInstance() {
+    public static Rand getInstance() {
         if (randInstance == null) {
             randInstance = new Rand();
         }
