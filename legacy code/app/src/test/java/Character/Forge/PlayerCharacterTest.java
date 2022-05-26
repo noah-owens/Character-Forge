@@ -25,6 +25,7 @@ package Character.Forge;
 
 import Character.Forge.Behavior.PlayerCharacter;
 import Character.Forge.Data.*;
+import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -46,11 +47,13 @@ public class PlayerCharacterTest {
     Race human;
     Background salesperson;
     ArrayList<Stat> humanRaceBonuses;
+    String[] sampleSaves = {"STR", "CON"};
+    String[] sampleProfs = {"Perception"};
 
     @BeforeEach
     public void setUp() {
-        bard = new CharClass("Bard", 8, new ArrayList<>(), new ArrayList<>(), 0);
-        barbarian = new CharClass("Barbarian", 12, new ArrayList<>(), new ArrayList<>(), 0);
+        bard = new CharClass("Bard", 8, new ArrayList<>(), sampleSaves, sampleProfs, 3, 0);
+        barbarian = new CharClass("Barbarian", 12, new ArrayList<>(), sampleSaves, sampleProfs, 2, 0);
         lyle = new PlayerCharacter("Lyle", 1, bard, null, 0, new ArrayList<>(), null, "CG");
         bronan = new PlayerCharacter("Bronan", 15, barbarian, null, 0, new ArrayList<>(), null, "CG");
         humanRaceBonuses = new ArrayList<>();
