@@ -30,7 +30,7 @@ First/Middle/Last Names are an especially easy place to start, since they are es
 
 ## Pull Requests
 
-This project uses a workflow known as [Github Flow](https://docs.github.com/en/get-started/quickstart/github-flow) which you should be familiar with before making commits.
+This project attempts to follow a workflow known as [Github Flow](https://docs.github.com/en/get-started/quickstart/github-flow) which you should be familiar with before making commits.
 
 A pull request will never be denied solely on account of not using Github Flow principles, so you don't need to agonize over it if you have little
 or no familiarity with the workflow. It's the ideas that matter, not the technique!
