@@ -37,12 +37,13 @@ import java.util.ArrayList;
  * @author Noah Owens
  */
 public class CharClass {
-    @Getter String name;
-    @Getter int hitDie;
-    @Getter @Setter ArrayList<CharFeature> features;
-    @Getter ArrayList<String> equipment;
-    @Getter @Setter int highestSpellSlotLvl;
-
+    @Getter private final String name;
+    @Getter private final int hitDie;
+    @Getter private ArrayList<CharFeature> features;
+    @Getter private final String[] savingThrows;
+    @Getter private final String[] proficiencies;
+    @Getter private final int numProficiencies;
+    @Getter @Setter private int highestSpellSlotLvl;
 
     /**
      * CharClass constructor builds an object with a name, hit die, and list of features.
@@ -50,14 +51,18 @@ public class CharClass {
      * @param name the one word title of the character class
      * @param hitDie an integer (either 6, 8, 10, or 12) representing the size of the die a character of this class rolls for hitpoints and short rest healing
      * @param features a list of the features which characters of this class gain.
-     * @param equipment a list of equipment to be added to character's overall equipment list
-     *
+     * @param savingThrows immutable String[] len 2 which contains the all-caps 3 letter abbreviation of Stats which the character is proficient in
+     * @param proficiencies immutable string[] which contains all the potential proficiencies granted by this class
+     * @param numProficiences the number of skill proficiencies that can be selected
+     * @param highestSpellSlotLvl integer representing the highest spell slot level available to the class
      */
-    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, ArrayList<String> equipment, int highestSpellSlotLvl) {
+    public CharClass(String name, int hitDie, ArrayList<CharFeature> features, String[] savingThrows, String[] proficiencies, int numProficiences, int highestSpellSlotLvl) {
         this.name = name;
         this.hitDie = hitDie;
         this.features = features;
-        this.equipment = equipment;
+        this.savingThrows = savingThrows;
+        this.proficiencies = proficiencies;
+        this.numProficiencies = numProficiences;
         this.highestSpellSlotLvl = highestSpellSlotLvl;
     }
 }

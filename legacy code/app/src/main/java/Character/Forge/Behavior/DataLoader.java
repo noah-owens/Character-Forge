@@ -84,7 +84,7 @@ public class DataLoader {
      */
     public void loadFromJson() {
         backgrounds = backgroundIOManager.jsonRead("src/main/resources/serialized-objects/background.json");
-        charClasses = charClassIOManager.jsonRead("src/main/resources/serialized-objects/char-classes.json");
+        charClasses = charClassIOManager.jsonRead("src/main/resources/serialized-objects/char-class.json");
         charFeatures = charFeatureIOManager.jsonRead("src/main/resources/serialized-objects/char-feature.json");
         races = raceIOManager.jsonRead("src/main/resources/serialized-objects/race.json");
         spells = spellIOManager.jsonRead("src/main/resources/serialized-objects/spell.json");
