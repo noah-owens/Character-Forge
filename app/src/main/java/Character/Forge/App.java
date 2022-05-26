@@ -32,7 +32,7 @@ import javafx.stage.Stage;
 /**
  * App class launches GUI
  * <p>
- * @version v0.1.0
+ * @version v0.5.0
  * @author Noah Owens
  */
 public class App extends Application {
