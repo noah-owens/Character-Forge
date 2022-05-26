@@ -1,7 +1,11 @@
-# Character Forge - v0.4.0
+# Character Forge - v0.5.0
 
 ![Build Status](https://github.com/noah-owens/Character-Forge/actions/workflows/java-ci.yml/badge.svg)
 [![codecov](https://codecov.io/gh/noah-owens/Character-Forge/branch/main/graph/badge.svg?token=4P24PAUOWH)](https://codecov.io/gh/noah-owens/Character-Forge)
+
+## Progress Note
+
+After a lot of consideration, this project of 5 months is being restructured from the ground up. A new (private) UML document is being developed which should provide more robust support for multiclassing, spells, and higher level play.
 
 ## About
 

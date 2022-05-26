@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.5.0] - 2022-05-26
+### Removed
+- All Classes except App.java temporarily removed and moved to `/'legacy code'` 
+
 ## [0.4.0] - 2022-04-07
 ### Added
 - Methods for determining random starting equipment
@@ -60,6 +64,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Lombok dependencies added to build.gradle
 - Plugins for JavaFX and Jacoco added to build.gradle
 
+[0.5.0]: https://github.com/noah-owens/Character-Forge/releases/tag/v0.5.0
+[0.4.0]: https://github.com/noah-owens/Character-Forge/releases/tag/v0.4.0
 [0.3.1]: https://github.com/noah-owens/Character-Forge/releases/tag/v0.3.1
 [0.3.0]: https://github.com/noah-owens/Character-Forge/releases/tag/v0.3.0
 [0.2.1]: https://github.com/noah-owens/Character-Forge/releases/tag/v0.2.1
