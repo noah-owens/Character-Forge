@@ -28,7 +28,7 @@ public class Background {
 
     private ArrayList<String> generateProficiencies(ArrayList<String> pool, int granted) {
         for (int i = 0; i < granted; i++) {
-            
+
         }
     }
 
