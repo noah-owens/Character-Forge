@@ -59,7 +59,7 @@ public class Rand {
     }
 
     /**
-     * randInt(int x) returns a number 'n' for which 0 <= n <= x
+     * randInt(int x) returns a number 'n' for which 0 <= n < x
      * @param n upper bound
      * @return integer from [0,n)
      */
