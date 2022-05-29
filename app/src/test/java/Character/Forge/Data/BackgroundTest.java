@@ -33,11 +33,12 @@ import java.util.ArrayList;
  */
 class BackgroundTest {
     private Background bkg;
+    private Feature angry = new Feature("Angry at kids", 0, false);
 
     @BeforeEach
     void setUp() {
-        ArrayList<String> featList = new ArrayList<>();
-            featList.add("Angry at kids");
+        ArrayList<Feature> featList = new ArrayList<>();
+            featList.add(angry);
 
         ArrayList<String> profList = new ArrayList<>();
 
@@ -55,8 +56,8 @@ class BackgroundTest {
 
     @Test
     void getFeatures() {
-        String firstFeature = bkg.getFeatures().get(0);
-        assert (firstFeature.equals("Angry at kids"));
+        Feature firstFeature = bkg.getFeatures().get(0);
+        assert (firstFeature.equals(angry));
     }
 
     @Test

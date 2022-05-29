@@ -34,7 +34,7 @@ import java.util.ArrayList;
  */
 public class Background {
     private String name;
-    private ArrayList<String> features;
+    private ArrayList<Feature> features;
     private ArrayList<String> proficiencies;
     private ArrayList<String> profPool;
     private int profGranted;
@@ -42,7 +42,7 @@ public class Background {
 
     private Rand r = Rand.getInstance();
 
-    public Background(String name, ArrayList<String> features, ArrayList<String> proficiencies, ArrayList<String> profPool, int profGranted, boolean errorFlag) {
+    public Background(String name, ArrayList<Feature> features, ArrayList<String> proficiencies, ArrayList<String> profPool, int profGranted, boolean errorFlag) {
         this.name = name;
         this.features = features;
         this.proficiencies = proficiencies;
@@ -70,7 +70,7 @@ public class Background {
         return name;
     }
 
-    public ArrayList<String> getFeatures() {
+    public ArrayList<Feature> getFeatures() {
         return features;
     }
 
