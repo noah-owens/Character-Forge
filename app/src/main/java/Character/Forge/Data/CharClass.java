@@ -39,11 +39,10 @@ public class CharClass {
     private final ArrayList<String> profPool;
     private final int profGranted;
     private boolean errorFlag;
-    private CharClass subclass;
 
     private Rand r = Rand.getInstance();
 
-    public CharClass(CharClassName name, String spellcastingMod, int hitDie, ArrayList<String> features, ArrayList<String> proficiencies, ArrayList<String> profPool, int profGranted, boolean errorFlag, CharClass subclass) {
+    public CharClass(CharClassName name, String spellcastingMod, int hitDie, ArrayList<String> features, ArrayList<String> proficiencies, ArrayList<String> profPool, int profGranted, boolean errorFlag) {
         this.name = name;
         this.spellcastingMod = spellcastingMod;
         this.hitDie = hitDie;
@@ -99,10 +98,6 @@ public class CharClass {
 
     public boolean isErrorFlag() {
         return errorFlag;
-    }
-
-    public CharClass getSubclass() {
-        return subclass;
     }
 
     /*---------------------------------|
