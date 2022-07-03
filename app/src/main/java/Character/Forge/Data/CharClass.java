@@ -52,6 +52,8 @@ public class CharClass {
         this.profPool = profPool;
         this.profGranted = profGranted;
         this.errorFlag = errorFlag;
+
+        proficiencies = generateProficiencies(profPool, profGranted);
     }
 
     private ArrayList<String> generateProficiencies(ArrayList<String> pool, int granted) {
