@@ -31,18 +31,19 @@ import java.util.ArrayList;
  * CharClass objects represent classes and subclasses, with their associated proficiencies and features
  */
 public class CharClass {
-    private CharClassName name;
-    private String spellcastingMod;
-    private int hitDie;
-    private ArrayList<String> features;
+    private final CharClassName name;
+    private final String spellcastingMod;
+    private final int hitDie;
+    private final ArrayList<String> features;
     private ArrayList<String> proficiencies;
-    private ArrayList<String> profPool;
-    private int profGranted;
+    private final ArrayList<String> profPool;
+    private final int profGranted;
     private boolean errorFlag;
+    private CharClass subclass;
 
     private Rand r = Rand.getInstance();
 
-    public CharClass(CharClassName name, String spellcastingMod, int hitDie, ArrayList<String> features, ArrayList<String> proficiencies, ArrayList<String> profPool, int profGranted, boolean errorFlag) {
+    public CharClass(CharClassName name, String spellcastingMod, int hitDie, ArrayList<String> features, ArrayList<String> proficiencies, ArrayList<String> profPool, int profGranted, boolean errorFlag, CharClass subclass) {
         this.name = name;
         this.spellcastingMod = spellcastingMod;
         this.hitDie = hitDie;
@@ -96,6 +97,10 @@ public class CharClass {
 
     public boolean isErrorFlag() {
         return errorFlag;
+    }
+
+    public CharClass getSubclass() {
+        return subclass;
     }
 
     /*---------------------------------|
