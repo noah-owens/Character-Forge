@@ -5,7 +5,9 @@
 
 ## Progress Note
 
-After a lot of consideration, this project of 5 months is being restructured from the ground up. A new (private) UML document is being developed which should provide more robust support for multiclassing, spells, and higher level play.
+After a lot of consideration, this project of 5 months is being restructured from the ground up to provide more robust support for multiclassing, spells, and higher level play.
+I have also decided to focus on creating more readable and organized boilerplate code, rather than avoiding it entirely with Lombok. Lombok has been incredibly convenient, but writing
+my own accessor and mutator methods has so far led to more thoughtful and cohesive design.
 
 ## About
 
@@ -27,6 +29,7 @@ git clone https://github.com/noah-owens/Character-Forge.git
 ```
 
 Next, make sure you have an up-to-date [Gradle installation](https://gradle.org/install/) and [JDK](https://docs.oracle.com/en/java/javase/11/install/). Navigate to the project directory in your command prompt, then you're all good to build and run the app using Gradle:
+
 ```
 gradle build
 gradle run
@@ -34,7 +37,7 @@ gradle run
 
 ## Contributing
 
-Character Forge is currently accepting non-code contributions. For more information on how you can help, check out the [Contributing Guidelines](./CONTRIBUTING.md). Alternatively, create an issue, and I'll be sure to give it a look! Before contributing, make sure to skim the [Code of Conduct](./CODE_OF_CONDUCT.md). (All it really asks is that you be kind though.)
+Character Forge is not currently accepting contributions. 
 
 ## Contact 
 
@@ -48,9 +51,9 @@ If you like what's going on here, feel free to support me on [Ko-Fi](https://ko-
 
 ## Acknowledgements
 
-- [Jeroen van Erp](https://github.com/hierynomus) - Whose amazing [license plugin](https://github.com/noah-owens/Character-Forge) for gradle makes everything easier
-- [Othneil Drew](https://github.com/othneildrew) - For the awesome [README template](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md) I pulled heavy inspiration from
-- [Gitmoji](https://gitmoji.dev/) - For making a standardized commit labeling system
+- [Jeroen van Erp](https://github.com/hierynomus) - For their [license plugin](https://github.com/noah-owens/Character-Forge) for Gradle
+- [Othneil Drew](https://github.com/othneildrew) - For the [README template](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md) I pulled heavy inspiration from
+- [Gitmoji](https://gitmoji.dev/) - For an easy reference to keep commits organized
 - [InversifyJS](https://github.com/inversify/inversify-basic-example) - For the [pull request template](https://github.com/inversify/inversify-basic-example/blob/master/PULL_REQUEST_TEMPLATE.md) I edited to suit this project
 
 ## License
